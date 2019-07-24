@@ -40,6 +40,10 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             String jawaban = getRandomJawaban();
             String replyToken = messageEvent.getReplyToken();
             balasChatDenganRandomJawaban(replyToken, jawaban);
+        }else{
+            String error = "Mohon maaf untuk lebih memperjelas pertanyaan anda.";
+            String replyToken = messageEvent.getReplyToken();
+            balasChatDenganRandomJawaban(replyToken, jawaban);
         }
     }
 
