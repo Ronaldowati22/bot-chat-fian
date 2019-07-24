@@ -1,0 +1,36 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.bot'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+    implementation 'com.linecorp.bot:line-bot-spring-boot:1.15.0'
+    implementation 'com.linecorp.bot:line-bot-servlet:1.15.0'
+    implementation 'com.linecorp.bot:line-bot-model:1.15.0'
+    implementation 'com.linecorp.bot:line-bot-api-client:1.15.0'
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
