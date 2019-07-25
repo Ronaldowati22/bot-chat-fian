@@ -31,7 +31,7 @@ import java.util.concurrent.ExecutionException;
 @LineMessageHandler
 public class BotApakahApplication extends SpringBootServletInitializer {
 
-    String pesan_dikirim;
+    String pesan_dikirim="";
 
     @Autowired
     private LineMessagingClient lineMessagingClient;
@@ -50,6 +50,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         String pesan = messageEvent.getMessage().getText().toLowerCase();
         String[] pesanSplit = pesan.split(" ");
         int panjang = pesanSplit.length;
+        pesan_dikirim="";
 
         compare(pesanSplit);
         System.out.println("Panjang data : "+panjang);
