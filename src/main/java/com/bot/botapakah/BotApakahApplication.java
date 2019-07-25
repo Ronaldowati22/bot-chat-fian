@@ -54,9 +54,12 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         String pesan = messageEvent.getMessage().getText().toLowerCase();
         String replyToken = messageEvent.getReplyToken();
         char cek = pesan.charAt(pesan.length()-1);
+        Boolean lanjut=false;
+        
         System.out.println("Isi Pesan :"+pesan);
         System.out.println("Panjang Pesan :"+pesan.length());
         System.out.println("Harusnya si tanda tanya :"+cek);
+
         pesan_dikirim="";
 
         
@@ -65,22 +68,26 @@ public class BotApakahApplication extends SpringBootServletInitializer {
 
         if(cek=='?'){
             compare(pesan);
-            switch(pesan) {
-                case "/rules":
-                    String rules="Berikut aturan untuk menggunakan Chat Bot Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
-                    balasChatDenganRandomJawaban(replyToken, rules);
-                  break;
-                case "terima kasih":
-                    String terimakasih="Terima Kasih sudah menggunakan aplikasi ini.";
-                    balasChatDenganRandomJawaban(replyToken, terimakasih);
-                  break;
-                default:
-                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
-              }
+            lanjut=true;
         }else{
             String tandatanya="mohon untuk memberi tanda tanya '?' dan pastikan bahwa tidak ada huruf / character dibelakang tanda tanya.";
             balasChatDenganRandomJawaban(replyToken, tandatanya);
         }
+
+        switch(pesan) {
+            case "/rules":
+                String rules="Berikut aturan untuk menggunakan Chat Bot Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
+                balasChatDenganRandomJawaban(replyToken, rules);
+              break;
+            case "terima kasih":
+                String terimakasih="Terima Kasih sudah menggunakan aplikasi ini.";
+                balasChatDenganRandomJawaban(replyToken, terimakasih);
+              break;
+            default:
+                if(lanjut==true){
+                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
+                }
+          }
 
         // if(pesanSplit[0].equals("apakah")){
         //     String jawaban = getRandomJawaban();
