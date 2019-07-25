@@ -80,7 +80,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                 records.add(Arrays.asList("Error"));
             }else{
                 while ((line = br.readLine()) != null) {
-                    String[] values = line.split(",");
+                    String[] values = line.split("#");
                     hasil=values[1];
                 }
             }
