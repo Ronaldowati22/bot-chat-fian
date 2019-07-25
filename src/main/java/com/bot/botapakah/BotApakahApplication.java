@@ -57,6 +57,24 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         System.out.println("Panjang data : "+panjang);
         System.out.println("Isi data : "+pesanSplit);
 
+        if(pesanSplit[panjang-1].equals("?")){
+            switch(pesan) {
+                case "/rules":
+                    String rules="Berikut aturan untuk menggunakan Chat Bot Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
+                    balasChatDenganRandomJawaban(replyToken, rules);
+                  break;
+                case "terima kasih":
+                    String terimakasih="Terima Kasih sudah menggunakan aplikasi ini.";
+                    balasChatDenganRandomJawaban(replyToken, terimakasih);
+                  break;
+                default:
+                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
+              }
+        }else{
+            String tandatanya="mohon untuk memberi tanda tanya '?' dan pastikan berikan spasi sebelum tanda tanya '?'.";
+            balasChatDenganRandomJawaban(replyToken, tandatanya);
+        }
+
         // if(pesanSplit[0].equals("apakah")){
         //     String jawaban = getRandomJawaban();
         //     String replyToken = messageEvent.getReplyToken();
@@ -66,18 +84,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         //     balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
         // }
 
-        switch(pesan) {
-            case "/rules":
-                String rules="Berikut aturan untuk menggunakan Chat Bot Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
-                balasChatDenganRandomJawaban(replyToken, rules);
-              break;
-            case "terima kasih":
-                String terimakasih="Terima Kasih sudah menggunakan aplikasi ini.";
-                balasChatDenganRandomJawaban(replyToken, terimakasih);
-              break;
-            default:
-                balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
-          }
+
     }
 
     // private String getRandomJawaban(){
@@ -122,7 +129,8 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                         System.out.println("Jumlah Batas : " +batas_minimal);
                     }
                     if(batas_minimal>=Integer.parseInt(array[i][1])){
-                        pesan(array[i][2]);
+                        String hasil = array[i][2].replace("<>","\n"); // Replace 'h' with 's'  
+                        pesan(hasil);
                     }else{
                         String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
                         pesan(error);
