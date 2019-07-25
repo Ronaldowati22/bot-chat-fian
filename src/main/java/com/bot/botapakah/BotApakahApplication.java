@@ -31,7 +31,7 @@ import java.util.concurrent.ExecutionException;
 @LineMessageHandler
 public class BotApakahApplication extends SpringBootServletInitializer {
 
-    String token,event;
+    String pesan;
 
     @Autowired
     private LineMessagingClient lineMessagingClient;
@@ -50,14 +50,16 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         String pesan = messageEvent.getMessage().getText().toLowerCase();
         String[] pesanSplit = pesan.split(" ");
         int panjang = pesanSplit.length;
+
+        compare(pesanSplit);
+
         if(pesanSplit[0].equals("apakah")){
             String jawaban = getRandomJawaban();
             String replyToken = messageEvent.getReplyToken();
             balasChatDenganRandomJawaban(replyToken, jawaban + panjang);
         }else{
             String replyToken = messageEvent.getReplyToken();
-            String hasil = readcsv();
-            balasChatDenganRandomJawaban(replyToken, hasil);
+            balasChatDenganRandomJawaban(replyToken, pesan);
         }
     }
 
@@ -72,23 +74,42 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         return jawaban;
     }
 
-    private String readcsv(){
-        List<List<String>> records = new ArrayList<>();
-        String hasil="";
-        try (BufferedReader br = new BufferedReader(new FileReader("./addresses.csv"))) {
+    private void compare(String[] Message){
+        List<String[]> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("./data.csv"))) {
             String line;
             if((line = br.readLine()) == null){
-                records.add(Arrays.asList("Error"));
+                
             }else{
                 while ((line = br.readLine()) != null) {
-                    String[] values = line.split("#");
-                    records.add(Arrays.asList(values));
+                    // String[] values = line.split(";");
+                    records.add(line.split(";"));
+                }
+                String[][] array = new String[records.size()][0];
+                records.toArray(array);
+
+                for(int i=0;i<array.length;i++){
+                    int batas_minimal=0;
+                    String[] keyword = array[i][0].split(" ");
+                    for(int j=0;j<keyword.length;j++){
+                        for(int k=0;k<Message.length;k++){
+                            if(keyword[j].equals(Message[k])){
+                                batas_minimal=batas_minimal+1;
+                            }
+                        }
+                    }
+                    if(batas_minimal>=Integer.parseInt(array[i][1])){
+                        pesan(array[i][2]);
+                    }
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return hasil+records;
+    }
+
+    private void pesan(String pesan){
+        this.pesan=pesan;
     }
 
     private void balasChatDenganRandomJawaban(String replyToken, String jawaban){
