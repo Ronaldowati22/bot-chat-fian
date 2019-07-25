@@ -73,13 +73,14 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         List<List<String>> records = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("coba.csv"))) {
             String line;
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(",");
-                records.add(Arrays.asList(values));
-            }
-            if((line = br.readLine()) != null){
+            if((line = br.readLine()) == null){
                 records.add(Arrays.asList("Error"));
-            }         
+            }else{
+                while ((line = br.readLine()) != null) {
+                    String[] values = line.split(",");
+                    records.add(Arrays.asList(values));
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
