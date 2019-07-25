@@ -12,7 +12,18 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.json.*;
 
+import java.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
 
@@ -41,14 +52,9 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             String replyToken = messageEvent.getReplyToken();
             balasChatDenganRandomJawaban(replyToken, jawaban);
         }else{
-//             JSONArray array = new JSONArray();
-//             JSONObject item = new JSONObject();
-//             item.put("type", "type");
-//             item.put("text", "Maaf anda salah");
-//             array.add(item);
-            String jawaban = "Error, mohon untuk memperjelas pertanyaan";
+            String error = ""+readcsv();
             String replyToken = messageEvent.getReplyToken();
-            balasChatDenganRandomJawaban(replyToken, jawaban);
+            balasChatDenganRandomJawaban(replyToken, error);
         }
     }
 
@@ -61,6 +67,21 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             jawaban = "Nggak";
         }
         return jawaban;
+    }
+
+    private ArrayList readcsv(){
+        List<List<String>> records = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("coba.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                records.add(Arrays.asList(values));
+            }         
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return (ArrayList) records;
     }
 
     private void balasChatDenganRandomJawaban(String replyToken, String jawaban){
