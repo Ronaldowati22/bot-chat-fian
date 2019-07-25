@@ -74,7 +74,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         return jawaban;
     }
 
-    private void compare(String[] Message){
+    private void compare(String[] isi_kiriman){
         List<String[]> records = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("./data.csv"))) {
             String line;
@@ -92,8 +92,8 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                     int batas_minimal=0;
                     String[] keyword = array[i][0].split(" ");
                     for(int j=0;j<keyword.length;j++){
-                        for(int k=0;k<Message.length;k++){
-                            if(keyword[j].equals(Message[k])){
+                        for(int k=0;k<isi_kiriman.length;k++){
+                            if(keyword[j].equals(isi_kiriman[k])){
                                 batas_minimal=batas_minimal+1;
                             }
                         }
