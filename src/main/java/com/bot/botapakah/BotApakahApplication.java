@@ -76,6 +76,9 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
                 records.add(Arrays.asList(values));
+            }
+            if((line = br.readLine()) != null){
+                records.add(Arrays.asList("Error"));
             }         
         } catch (Exception e) {
             e.printStackTrace();
