@@ -14,6 +14,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.json.*;
 
+import static org.mockito.Answers.values;
+
 import java.*;
 import java.io.BufferedReader;
 import java.io.File;
@@ -30,8 +32,6 @@ import java.util.concurrent.ExecutionException;
 @SpringBootApplication
 @LineMessageHandler
 public class BotApakahApplication extends SpringBootServletInitializer {
-
-    String token,event;
 
     @Autowired
     private LineMessagingClient lineMessagingClient;
@@ -55,7 +55,8 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             balasChatDenganRandomJawaban(replyToken, jawaban);
         }else{
             String replyToken = messageEvent.getReplyToken();
-            readcsv(replyToken);
+            String hasil = readcsv();
+            balasChatDenganRandomJawaban(replyToken, hasil);
         }
     }
 
@@ -70,8 +71,9 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         return jawaban;
     }
 
-    private void readcsv(String token){
+    private String readcsv(){
         List<List<String>> records = new ArrayList<>();
+        String hasil="";
         try (BufferedReader br = new BufferedReader(new FileReader("./coba.csv"))) {
             String line;
             if((line = br.readLine()) == null){
@@ -79,12 +81,13 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             }else{
                 while ((line = br.readLine()) != null) {
                     String[] values = line.split(",");
-                    balasChatDenganRandomJawaban(token, values[1]);
+                    hasil=values[1];
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return hasil;
     }
 
     private void balasChatDenganRandomJawaban(String replyToken, String jawaban){
