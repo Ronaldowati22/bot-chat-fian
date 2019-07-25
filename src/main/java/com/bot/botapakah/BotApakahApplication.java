@@ -99,7 +99,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                         }
                     }
                     if(batas_minimal>=Integer.parseInt(array[i][1])){
-                        pesan(array[i][2]);
+                        pesan(array[i][2]+batas_minimal);
                     }
                 }
             }
