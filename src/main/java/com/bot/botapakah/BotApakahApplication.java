@@ -83,7 +83,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                     String tandatanya="mohon untuk memberi tanda tanya '?' dan pastikan bahwa tidak ada huruf / character dibelakang tanda tanya.";
                     balasChatDenganRandomJawaban(replyToken, tandatanya);
                 }
-                
+
                 if(lanjut==true){
                     balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
                 }
@@ -97,10 +97,6 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         //     String replyToken = messageEvent.getReplyToken();
         //     balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
         // }
-    }
-
-    private cektanda(){
-        
     }
 
     // private String getRandomJawaban(){
