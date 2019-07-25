@@ -54,6 +54,8 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         String pesan = messageEvent.getMessage().getText().toLowerCase();
         String replyToken = messageEvent.getReplyToken();
         char cek = pesan.charAt(pesan.length()-1);
+        System.out.println("Isi Pesan :"+pesan);
+        System.out.println("Panjang Pesan :"+pesan.length());
         System.out.println("Harusnya si tanda tanya :"+cek);
         pesan_dikirim="";
 
