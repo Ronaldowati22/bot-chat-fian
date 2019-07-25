@@ -31,6 +31,8 @@ import java.util.concurrent.ExecutionException;
 @LineMessageHandler
 public class BotApakahApplication extends SpringBootServletInitializer {
 
+    String token,event;
+
     @Autowired
     private LineMessagingClient lineMessagingClient;
 
@@ -52,9 +54,8 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             String replyToken = messageEvent.getReplyToken();
             balasChatDenganRandomJawaban(replyToken, jawaban);
         }else{
-            String error = ""+readcsv();
             String replyToken = messageEvent.getReplyToken();
-            balasChatDenganRandomJawaban(replyToken, error);
+            readcsv(replyToken);
         }
     }
 
@@ -69,7 +70,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         return jawaban;
     }
 
-    private List readcsv(){
+    private void readcsv(String token){
         List<List<String>> records = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("coba.csv"))) {
             String line;
@@ -78,14 +79,12 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             }else{
                 while ((line = br.readLine()) != null) {
                     String[] values = line.split(",");
-                    records.add(Arrays.asList(values));
+                    balasChatDenganRandomJawaban(token, values[0]);
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        return records;
     }
 
     private void balasChatDenganRandomJawaban(String replyToken, String jawaban){
