@@ -69,7 +69,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         return jawaban;
     }
 
-    private ArrayList readcsv(){
+    private List readcsv(){
         List<List<String>> records = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("coba.csv"))) {
             String line;
@@ -81,7 +81,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             e.printStackTrace();
         }
 
-        return (ArrayList) records;
+        return records;
     }
 
     private void balasChatDenganRandomJawaban(String replyToken, String jawaban){
