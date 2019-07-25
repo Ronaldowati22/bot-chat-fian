@@ -31,7 +31,7 @@ import java.util.concurrent.ExecutionException;
 @LineMessageHandler
 public class BotApakahApplication extends SpringBootServletInitializer {
 
-    String pesan;
+    String pesan_dikirim;
 
     @Autowired
     private LineMessagingClient lineMessagingClient;
@@ -59,7 +59,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             balasChatDenganRandomJawaban(replyToken, jawaban + panjang);
         }else{
             String replyToken = messageEvent.getReplyToken();
-            balasChatDenganRandomJawaban(replyToken, pesan);
+            balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
         }
     }
 
@@ -109,7 +109,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     }
 
     private void pesan(String pesan){
-        this.pesan=pesan;
+        this.pesan_dikirim=pesan;
     }
 
     private void balasChatDenganRandomJawaban(String replyToken, String jawaban){
