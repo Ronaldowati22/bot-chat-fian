@@ -52,6 +52,8 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         int panjang = pesanSplit.length;
 
         compare(pesanSplit);
+        System.out.println("Panjang data : "+panjang);
+        System.out.println("Isi data : "+pesanSplit);
 
         if(pesanSplit[0].equals("apakah")){
             String jawaban = getRandomJawaban();
@@ -87,21 +89,22 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                 }
                 String[][] array = new String[records.size()][0];
                 records.toArray(array);
-                System.out.println(array);
 
                 for(int i=0;i<array.length;i++){
                     int batas_minimal=0;
                     String[] keyword = array[i][0].split(" ");
+                    System.out.println("Isi Array : "+array[i]);
                     
                     for(int j=0;j<keyword.length;j++){
-                        System.out.println(keyword[j]);
-                        
+                        System.out.println("Keyword Array ke " + i + " : "+keyword[j]);
+
                         for(int k=0;k<isi_kiriman.length;k++){
                             if(keyword[j].equals(isi_kiriman[k])){
                                 batas_minimal=batas_minimal+1;
-                                System.out.println(isi_kiriman[k]);
+                                System.out.println("Isi pesan : " +isi_kiriman[k]);
                             }
                         }
+                        System.out.println("Jumlah Batas : " +batas_minimal);
                     }
                     if(batas_minimal>=Integer.parseInt(array[i][1])){
                         pesan(array[i][2]+batas_minimal);
