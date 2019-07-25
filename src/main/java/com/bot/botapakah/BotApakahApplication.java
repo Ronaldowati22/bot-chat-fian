@@ -66,14 +66,6 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         // System.out.println("Panjang data : "+panjang);
         // System.out.println("Isi data : "+pesanSplit);
 
-        if(cek=='?'){
-            compare(pesan);
-            lanjut=true;
-        }else{
-            String tandatanya="mohon untuk memberi tanda tanya '?' dan pastikan bahwa tidak ada huruf / character dibelakang tanda tanya.";
-            balasChatDenganRandomJawaban(replyToken, tandatanya);
-        }
-
         switch(pesan) {
             case "/rules":
                 String rules="Berikut aturan untuk menggunakan Chat Bot Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
@@ -84,6 +76,14 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                 balasChatDenganRandomJawaban(replyToken, terimakasih);
               break;
             default:
+                if(cek=='?'){
+                    compare(pesan);
+                    lanjut=true;
+                }else{
+                    String tandatanya="mohon untuk memberi tanda tanya '?' dan pastikan bahwa tidak ada huruf / character dibelakang tanda tanya.";
+                    balasChatDenganRandomJawaban(replyToken, tandatanya);
+                }
+                
                 if(lanjut==true){
                     balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
                 }
@@ -97,8 +97,10 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         //     String replyToken = messageEvent.getReplyToken();
         //     balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
         // }
+    }
 
-
+    private cektanda(){
+        
     }
 
     // private String getRandomJawaban(){
