@@ -144,8 +144,16 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                         System.out.println("Jumlah Batas : " +batas_minimal);
                     }
                     if(batas_minimal>=Integer.parseInt(array[i][1])){
-                        String hasil = array[i][2].replace("<>","\n"); // Replace 'h' with 's'  
-                        pesan(hasil);
+                        if(array[i][3].equals("Yes")){
+                            String hasil = array[i][2].replace("<>","\n");
+                            String hasil2 = array[i][4].replace("<>","\n");
+                            pesan(hasil);
+                            pesan(hasil2);
+                        }else{
+                            String hasil = array[i][2].replace("<>","\n"); // Replace 'h' with 's'  
+                            pesan(hasil);
+                        }
+                        
                         break;
                     }else{
                         String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
