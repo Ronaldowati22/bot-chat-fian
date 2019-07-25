@@ -14,8 +14,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.json.*;
 
-import static org.mockito.Answers.values;
-
 import java.*;
 import java.io.BufferedReader;
 import java.io.File;
@@ -32,6 +30,8 @@ import java.util.concurrent.ExecutionException;
 @SpringBootApplication
 @LineMessageHandler
 public class BotApakahApplication extends SpringBootServletInitializer {
+
+    String token,event;
 
     @Autowired
     private LineMessagingClient lineMessagingClient;
