@@ -74,7 +74,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     private String readcsv(){
         List<List<String>> records = new ArrayList<>();
         String hasil="";
-        try (BufferedReader br = new BufferedReader(new FileReader("./coba.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("./addresses.csv"))) {
             String line;
             if((line = br.readLine()) == null){
                 records.add(Arrays.asList("Error"));
