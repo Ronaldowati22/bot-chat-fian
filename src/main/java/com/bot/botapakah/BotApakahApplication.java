@@ -53,7 +53,8 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     public void handleTextEvent(MessageEvent<TextMessageContent> messageEvent){
         String pesan = messageEvent.getMessage().getText().toLowerCase();
         String replyToken = messageEvent.getReplyToken();
-        String cek = pesan.substring(pesan.length() - 1);
+        String cek = ""+pesan.substring(pesan.length() - 1);
+        System.out.println("Harusnya si tanda tanya :"+cek);
         pesan_dikirim="";
 
         
