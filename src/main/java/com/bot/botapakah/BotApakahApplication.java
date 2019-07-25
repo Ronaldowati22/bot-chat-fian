@@ -87,14 +87,19 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                 }
                 String[][] array = new String[records.size()][0];
                 records.toArray(array);
+                System.out.println(array);
 
                 for(int i=0;i<array.length;i++){
                     int batas_minimal=0;
                     String[] keyword = array[i][0].split(" ");
+                    
                     for(int j=0;j<keyword.length;j++){
+                        System.out.println(keyword[j]);
+                        
                         for(int k=0;k<isi_kiriman.length;k++){
                             if(keyword[j].equals(isi_kiriman[k])){
                                 batas_minimal=batas_minimal+1;
+                                System.out.println(isi_kiriman[k]);
                             }
                         }
                     }
