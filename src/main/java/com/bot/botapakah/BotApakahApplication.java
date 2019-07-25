@@ -53,7 +53,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     public void handleTextEvent(MessageEvent<TextMessageContent> messageEvent){
         String pesan = messageEvent.getMessage().getText().toLowerCase();
         String replyToken = messageEvent.getReplyToken();
-        String cek = ""+pesan.substring(pesan.length() - 1);
+        char cek = pesan.charAt(pesan.length()-1);
         System.out.println("Harusnya si tanda tanya :"+cek);
         pesan_dikirim="";
 
@@ -61,7 +61,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         // System.out.println("Panjang data : "+panjang);
         // System.out.println("Isi data : "+pesanSplit);
 
-        if(cek.equals("?")){
+        if(cek=='?'){
             compare(pesan);
             switch(pesan) {
                 case "/rules":
