@@ -49,10 +49,11 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     public void handleTextEvent(MessageEvent<TextMessageContent> messageEvent){
         String pesan = messageEvent.getMessage().getText().toLowerCase();
         String[] pesanSplit = pesan.split(" ");
+        int panjang = pesanSplit.length;
         if(pesanSplit[0].equals("apakah")){
             String jawaban = getRandomJawaban();
             String replyToken = messageEvent.getReplyToken();
-            balasChatDenganRandomJawaban(replyToken, jawaban);
+            balasChatDenganRandomJawaban(replyToken, jawaban + panjang);
         }else{
             String replyToken = messageEvent.getReplyToken();
             String hasil = readcsv();
