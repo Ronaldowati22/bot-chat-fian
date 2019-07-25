@@ -78,7 +78,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                     balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
               }
         }else{
-            String tandatanya="mohon untuk memberi tanda tanya '?' dan pastikan berikan spasi sebelum tanda tanya '?'.";
+            String tandatanya="mohon untuk memberi tanda tanya '?' dan pastikan bahwa tidak ada huruf / character dibelakang tanda tanya.";
             balasChatDenganRandomJawaban(replyToken, tandatanya);
         }
 
