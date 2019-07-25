@@ -79,7 +79,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             }else{
                 while ((line = br.readLine()) != null) {
                     String[] values = line.split(",");
-                    balasChatDenganRandomJawaban(token, values[0]);
+                    balasChatDenganRandomJawaban(token, values[1]);
                 }
             }
         } catch (Exception e) {
