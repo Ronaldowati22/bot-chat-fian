@@ -49,6 +49,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     public void handleTextEvent(MessageEvent<TextMessageContent> messageEvent){
         String pesan = messageEvent.getMessage().getText().toLowerCase();
         String[] pesanSplit = pesan.split(" ");
+        String replyToken = messageEvent.getReplyToken();
         int panjang = pesanSplit.length;
         pesan_dikirim="";
 
@@ -56,26 +57,39 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         System.out.println("Panjang data : "+panjang);
         System.out.println("Isi data : "+pesanSplit);
 
-        if(pesanSplit[0].equals("apakah")){
-            String jawaban = getRandomJawaban();
-            String replyToken = messageEvent.getReplyToken();
-            balasChatDenganRandomJawaban(replyToken, jawaban + panjang);
-        }else{
-            String replyToken = messageEvent.getReplyToken();
-            balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
-        }
+        // if(pesanSplit[0].equals("apakah")){
+        //     String jawaban = getRandomJawaban();
+        //     String replyToken = messageEvent.getReplyToken();
+        //     balasChatDenganRandomJawaban(replyToken, jawaban + panjang);
+        // }else{
+        //     String replyToken = messageEvent.getReplyToken();
+        //     balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
+        // }
+
+        switch(pesan) {
+            case "/rules":
+                String rules="Berikut aturan untuk menggunakan Chat Bot Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
+                balasChatDenganRandomJawaban(replyToken, rules);
+              break;
+            case "terima kasih":
+                String terimakasih="Terima Kasih sudah menggunakan aplikasi ini.";
+                balasChatDenganRandomJawaban(replyToken, terimakasih);
+              break;
+            default:
+                balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
+          }
     }
 
-    private String getRandomJawaban(){
-        String jawaban = "";
-        int random = new Random().nextInt();
-        if(random%2==0){
-            jawaban = "Ya";
-        } else{
-            jawaban = "Nggak";
-        }
-        return jawaban;
-    }
+    // private String getRandomJawaban(){
+    //     String jawaban = "";
+    //     int random = new Random().nextInt();
+    //     if(random%2==0){
+    //         jawaban = "Ya";
+    //     } else{
+    //         jawaban = "Nggak";
+    //     }
+    //     return jawaban;
+    // }
 
     private void compare(String[] isi_kiriman){
         List<String[]> records = new ArrayList<>();
@@ -108,7 +122,10 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                         System.out.println("Jumlah Batas : " +batas_minimal);
                     }
                     if(batas_minimal>=Integer.parseInt(array[i][1])){
-                        pesan(array[i][2]+batas_minimal);
+                        pesan(array[i][2]);
+                    }else{
+                        String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
+                        pesan(error);
                     }
                 }
             }
