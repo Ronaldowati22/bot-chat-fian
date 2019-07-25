@@ -45,21 +45,24 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         SpringApplication.run(BotApakahApplication.class, args);
     }
 
+    // public static String charRemoveAt(String str, int p) {  
+    //     return str.substring(0, p) + str.substring(p + 1);  
+    //  }
+
     @EventMapping
     public void handleTextEvent(MessageEvent<TextMessageContent> messageEvent){
         String pesan = messageEvent.getMessage().getText().toLowerCase();
-        String[] pesanSplit = pesan.split(" ");
         String replyToken = messageEvent.getReplyToken();
-        int panjang = pesanSplit.length;
         char c = pesan.charAt(pesan.length()-1);
         String cek = ""+c;
         pesan_dikirim="";
 
-        compare(pesanSplit);
-        System.out.println("Panjang data : "+panjang);
-        System.out.println("Isi data : "+pesanSplit);
+        
+        // System.out.println("Panjang data : "+panjang);
+        // System.out.println("Isi data : "+pesanSplit);
 
         if(cek.equals("?")){
+            compare(pesan);
             switch(pesan) {
                 case "/rules":
                     String rules="Berikut aturan untuk menggunakan Chat Bot Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
@@ -100,7 +103,10 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     //     return jawaban;
     // }
 
-    private void compare(String[] isi_kiriman){
+    private void compare(String isi_kiriman){
+        String cleartext = isi_kiriman.substring(0, isi_kiriman.length()-1);
+        System.out.println("Hasil clear text : "+cleartext);
+        String[] pesanSplit = cleartext.split(" ");
         List<String[]> records = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("./data.csv"))) {
             String line;
@@ -122,10 +128,10 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                     for(int j=0;j<keyword.length;j++){
                         System.out.println("Keyword Array ke " + i + " : "+keyword[j]);
 
-                        for(int k=0;k<isi_kiriman.length;k++){
-                            if(keyword[j].equals(isi_kiriman[k])){
+                        for(int k=0;k<pesanSplit.length;k++){
+                            if(keyword[j].equals(pesanSplit[k])){
                                 batas_minimal=batas_minimal+1;
-                                System.out.println("Isi pesan : " +isi_kiriman[k]);
+                                System.out.println("Isi pesan : " +pesanSplit[k]);
                             }
                         }
                         System.out.println("Jumlah Batas : " +batas_minimal);
