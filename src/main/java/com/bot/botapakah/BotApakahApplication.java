@@ -82,13 +82,13 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             }else{
                 while ((line = br.readLine()) != null) {
                     String[] values = line.split("#");
-                    hasil=values[1];
+                    records.add(Arrays.asList(values));
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return hasil;
+        return hasil+records;
     }
 
     private void balasChatDenganRandomJawaban(String replyToken, String jawaban){
