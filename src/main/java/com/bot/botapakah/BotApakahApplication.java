@@ -170,7 +170,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                             String hasil = array[i][3].replace("<>","\n");
                             int idpesan = Integer.parseInt(array[i][5]);
                             String hasil2 = array[idpesan-1][3].replace("<>","\n");
-                            String img = array[i][6];
+                            String img = array[idpesan-1][6];
                             System.out.print("Harusnya hasil pesan 2:"+hasil2);
 
                             pesan(hasil);
