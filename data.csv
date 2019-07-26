@@ -5,3 +5,5 @@ ID;Keyword;Minimal Keyword;Pesan;Send;Pesan2;Gambar
 4;seleksi seleksinya;1;Mungkin yang anda maksud:<>Bagaimana tahapan seleksinya?<><>jika benar ketik 'ya' tanpa tanda petik ya kak.;Yes;3;null;
 5;program studi it telkom jurusan apa saja jurusanya studinya;5;Untuk program studi yang ada di IT Telkom Purwokerto yaitu sebagai gambar dibawah ini kak;No;;https://i.ibb.co/NmzqQbL/programstudi.png;
 6;jurusan program studi;2;Mungkin yang anda maksud:<>Apa saja program studi yang ada di IT Telkom?<><>jika benar ketik 'ya' tanpa tanda petik ya kak.;Yes;5;null;
+7;biaya semester berapa per persemester;3;Jadi untuk biaya per semesternya kak dapat dilihat dari gambar dibawah.;No;;https://i.ibb.co/rxQ4ntr/biayasemester.png;
+8;semester semesteran;1;Mungkin yang anda maksud:<>Berapa biaya per semester?<><>jika benar ketik 'ya' tanpa tanda petik ya kak.;Yes;7;null;
