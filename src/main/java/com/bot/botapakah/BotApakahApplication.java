@@ -181,6 +181,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                             System.out.print("Harusnya link gambar :"+img);
                             pesankedua(hasil2);
                             pesan2="true";
+                            break;
                         }else{
                             String hasil = array[i][3].replace("<>","\n"); // Replace 'h' with 's' 
                             String img = array[i][6];
