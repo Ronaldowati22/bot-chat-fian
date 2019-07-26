@@ -111,33 +111,13 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                 }
 
                 if(lanjut==true && ya=="yes"){
-                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim+info, ""+gambar);
+                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim, ""+gambar);
                 }else{
                     balasChatDenganRandomJawaban(replyToken, pesan_dikirim+info, "null");
                 }
             break;
         }
-
-        // if(pesanSplit[0].equals("apakah")){
-        //     String jawaban = getRandomJawaban();
-        //     String replyToken = messageEvent.getReplyToken();
-        //     balasChatDenganRandomJawaban(replyToken, jawaban + panjang);
-        // }else{
-        //     String replyToken = messageEvent.getReplyToken();
-        //     balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
-        // }
     }
-
-    // private String getRandomJawaban(){
-    //     String jawaban = "";
-    //     int random = new Random().nextInt();
-    //     if(random%2==0){
-    //         jawaban = "Ya";
-    //     } else{
-    //         jawaban = "Nggak";
-    //     }
-    //     return jawaban;
-    // }
 
     private void compare(String isi_kiriman){
         String cleartext = isi_kiriman.substring(0, isi_kiriman.length()-1);
