@@ -33,7 +33,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
 
     String pesan_dikirim="";
     String pesan_dua="";
-    Boolean pesan2;
+    String pesan2="";
 
     @Autowired
     private LineMessagingClient lineMessagingClient;
@@ -79,8 +79,9 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                 balasChatDenganRandomJawaban(replyToken, terimakasih);
                 break;
             case "ya":
-                if(pesan2==true){
+                if(pesan2=="true"){
                     balasChatDenganRandomJawaban(replyToken, pesan_dua);
+                    pesan2="";
                 }else{
                     String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
                     balasChatDenganRandomJawaban(replyToken, error);
@@ -160,7 +161,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                             String hasil2 = array[i][4].replace("<>","\n");
                             pesan(hasil);
                             pesankedua(hasil2);
-                            pesan2=true;
+                            pesan2="true";
                         }else{
                             String hasil = array[i][2].replace("<>","\n"); // Replace 'h' with 's'  
                             pesan(hasil);
