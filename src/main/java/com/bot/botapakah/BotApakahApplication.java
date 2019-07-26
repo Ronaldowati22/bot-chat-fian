@@ -88,7 +88,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                 String terimakasih="Terima Kasih sudah menggunakan aplikasi ini.";
                 balasChatDenganRandomJawaban(replyToken, terimakasih, ""+gambar);
                 break;
-            case "ya":
+            case "/ya":
                 if(pesan2=="true"){
                     balasChatDenganRandomJawaban(replyToken, pesan_dua, ""+gambar);
                     pesan2="";
@@ -169,6 +169,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                         if(array[i][4].equals("Yes")){
                             String hasil = array[i][3].replace("<>","\n");
                             int idpesan = Integer.parseInt(array[i][5]);
+                            System.out.print("Harusnya id pesan 2:"+idpesan);
                             String hasil2 = array[idpesan-1][3].replace("<>","\n");
                             // String img = array[idpesan-1][6];
                             String img="";
