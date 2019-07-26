@@ -43,6 +43,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     String gambar="";
     String pesan2="";
     String id="";
+    String info="\n\nJika ada yang mau ditanyakan lagi bisa tanya disini ka atau datang dan kunjungi social media kami\n\nKawasan Pendidikan Telkom Jl. DI. Panjaitan No. 128 Purwokerto 53147, Jawa Tengah.\nFan Page: It Telkom Purwokerto\nInstagram: @join_ittp\nLine ID: @join_ittp\nWA/SMS/Telp: 081228319222\nHunting: (0281) – 641629, Fax : (0281) 641630";
     String ya="";
 
     @Autowired
@@ -90,7 +91,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             break;
             case "ya":
                 if(pesan2=="true"){
-                    balasChatDenganRandomJawaban(replyToken, pesan_dua, ""+gambar);
+                    balasChatDenganRandomJawaban(replyToken, pesan_dua+info, ""+gambar);
                     pesan2="";
                     pesan_dua="";
                     gambar="";
@@ -110,9 +111,9 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                 }
 
                 if(lanjut==true && ya=="yes"){
-                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim, ""+gambar);
+                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim+info, ""+gambar);
                 }else{
-                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim, "null");
+                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim+info, "null");
                 }
             break;
         }
