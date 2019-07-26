@@ -1,10 +1,14 @@
 package com.bot.botapakah;
 
 import com.linecorp.bot.client.LineMessagingClient;
+import com.linecorp.bot.client.MessageContentResponse.MessageContentResponseBuilder;
+import com.linecorp.bot.model.Multicast;
 import com.linecorp.bot.model.ReplyMessage;
 import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
+import com.linecorp.bot.model.message.Message;
 import com.linecorp.bot.model.message.TextMessage;
+import com.linecorp.bot.model.action.MessageAction;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +26,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
 
@@ -34,6 +40,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     String pesan_dikirim="";
     String pesan_dua="";
     String pesan2="";
+    String id="";
 
     @Autowired
     private LineMessagingClient lineMessagingClient;
@@ -54,6 +61,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     @EventMapping
     public void handleTextEvent(MessageEvent<TextMessageContent> messageEvent){
         String pesan = messageEvent.getMessage().getText().toLowerCase();
+        id = messageEvent.getSource().getUserId();
         String replyToken = messageEvent.getReplyToken();
         char cek = pesan.charAt(pesan.length()-1);
         Boolean lanjut=false;
@@ -189,9 +197,15 @@ public class BotApakahApplication extends SpringBootServletInitializer {
 
     private void balasChatDenganRandomJawaban(String replyToken, String jawaban){
         TextMessage jawabanDalamBentukTextMessage = new TextMessage(jawaban);
+        List<Message> multipesan=new ArrayList<>();
+        Set<String> userid = new HashSet<>();
+        userid.add(id);
+        multipesan.add(jawabanDalamBentukTextMessage);
+        multipesan.add(jawabanDalamBentukTextMessage);
+        Multicast multi = new Multicast(userid,multipesan);
         try {
             lineMessagingClient
-                    .replyMessage(new ReplyMessage(replyToken, jawabanDalamBentukTextMessage))
+                    .multicast(multi)
                     .get();
         } catch (InterruptedException | ExecutionException e) {
             System.out.println("Ada error saat ingin membalas chat");
