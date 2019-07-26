@@ -43,6 +43,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     String gambar="";
     String pesan2="";
     String id="";
+    String ya="";
 
     @Autowired
     private LineMessagingClient lineMessagingClient;
@@ -93,6 +94,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                     pesan2="";
                     pesan_dua="";
                     gambar="";
+                    ya="";
                 }else{
                     String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
                     balasChatDenganRandomJawaban(replyToken, error, ""+gambar);
@@ -107,9 +109,10 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                     balasChatDenganRandomJawaban(replyToken, tandatanya, ""+gambar);
                 }
 
-                if(lanjut==true){
+                if(lanjut==true && ya=="yes"){
                     balasChatDenganRandomJawaban(replyToken, pesan_dikirim, ""+gambar);
-                    gambar="";
+                }else{
+                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim, "null");
                 }
             break;
         }
@@ -189,6 +192,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                             System.out.print("Harusnya link gambar :"+img); 
                             pesangambar(img);
                             pesan(hasil);
+                            ya="yes";
                         }
                         break;
                     }else{
