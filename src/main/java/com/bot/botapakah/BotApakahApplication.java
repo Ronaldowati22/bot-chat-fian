@@ -214,7 +214,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     }
 
     private void balasChatDenganRandomJawaban(String replyToken, String jawaban, String gambar){
-        if(gambar.length()==0){
+        if(gambar.equals("null")){
             TextMessage jawabanDalamBentukTextMessage = new TextMessage(jawaban);
             try {
                 lineMessagingClient
