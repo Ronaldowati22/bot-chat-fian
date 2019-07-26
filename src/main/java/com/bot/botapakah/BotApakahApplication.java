@@ -83,19 +83,19 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         switch(pesan) {
             case "/rules":
                 String rules="Berikut aturan untuk menggunakan Chat Bot Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
-                balasChatDenganRandomJawaban(replyToken, rules, gambar);
+                balasChatDenganRandomJawaban(replyToken, rules, ""+gambar);
                 break;
             case "terima kasih":
                 String terimakasih="Terima Kasih sudah menggunakan aplikasi ini.";
-                balasChatDenganRandomJawaban(replyToken, terimakasih, gambar);
+                balasChatDenganRandomJawaban(replyToken, terimakasih, ""+gambar);
                 break;
             case "ya":
                 if(pesan2=="true"){
-                    balasChatDenganRandomJawaban(replyToken, pesan_dua, gambar);
+                    balasChatDenganRandomJawaban(replyToken, pesan_dua, ""+gambar);
                     pesan2="";
                 }else{
                     String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
-                    balasChatDenganRandomJawaban(replyToken, error, gambar);
+                    balasChatDenganRandomJawaban(replyToken, error, ""+gambar);
                 }
                 break;
             default:
@@ -104,11 +104,11 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                     lanjut=true;
                 }else{
                     String tandatanya="mohon untuk memberi tanda tanya '?' dan pastikan bahwa tidak ada huruf / character dibelakang tanda tanya.";
-                    balasChatDenganRandomJawaban(replyToken, tandatanya, gambar);
+                    balasChatDenganRandomJawaban(replyToken, tandatanya, ""+gambar);
                 }
 
                 if(lanjut==true){
-                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim, gambar);
+                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim, ""+gambar);
                 }
           }
 
