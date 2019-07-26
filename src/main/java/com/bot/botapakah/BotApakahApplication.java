@@ -209,6 +209,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     private void balasChatDenganRandomJawaban(String replyToken, String jawaban, String gambar){
         TextMessage jawabanDalamBentukTextMessage = new TextMessage(jawaban);
         ImageMessage jawabanGambar = new ImageMessage(gambar,gambar);
+        System.out.println(gambar);
         List<Message> multipesan=new ArrayList<>();
         Set<String> userid = new HashSet<>();
 
