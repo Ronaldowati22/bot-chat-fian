@@ -148,7 +148,8 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                             String hasil = array[i][2].replace("<>","\n");
                             String hasil2 = array[i][4].replace("<>","\n");
                             pesan(hasil);
-                            pesan(hasil2);
+                            // pesan(hasil2);
+                            send_pesan(hasil2);
                         }else{
                             String hasil = array[i][2].replace("<>","\n"); // Replace 'h' with 's'  
                             pesan(hasil);
@@ -168,6 +169,10 @@ public class BotApakahApplication extends SpringBootServletInitializer {
 
     private void pesan(String pesan){
         this.pesan_dikirim=pesan;
+    }
+
+    private void send_pesan(String pesan){
+        pesan(pesan);
     }
 
     private void balasChatDenganRandomJawaban(String replyToken, String jawaban){
