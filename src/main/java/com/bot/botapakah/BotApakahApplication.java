@@ -83,12 +83,12 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             case "/rules":
                 String rules="Berikut aturan untuk menggunakan Chat Bot Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
                 balasChatDenganRandomJawaban(replyToken, rules, ""+gambar);
-                break;
+            break;
             case "terima kasih":
                 String terimakasih="Terima Kasih sudah menggunakan aplikasi ini.";
                 balasChatDenganRandomJawaban(replyToken, terimakasih, ""+gambar);
-                break;
-            case "/ya":
+            break;
+            case "ya":
                 if(pesan2=="true"){
                     balasChatDenganRandomJawaban(replyToken, pesan_dua, ""+gambar);
                     pesan2="";
@@ -96,7 +96,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                     String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
                     balasChatDenganRandomJawaban(replyToken, error, ""+gambar);
                 }
-                break;
+            break;
             default:
                 if(cek=='?'){
                     compare(pesan);
@@ -109,8 +109,8 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                 if(lanjut==true){
                     balasChatDenganRandomJawaban(replyToken, pesan_dikirim, ""+gambar);
                 }
-                break;
-          }
+            break;
+        }
 
         // if(pesanSplit[0].equals("apakah")){
         //     String jawaban = getRandomJawaban();
@@ -188,7 +188,6 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                             pesangambar(img);
                             pesan(hasil);
                         }
-                        
                         break;
                     }else{
                         String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
