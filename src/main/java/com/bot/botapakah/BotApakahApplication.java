@@ -109,6 +109,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
 
                 if(lanjut==true){
                     balasChatDenganRandomJawaban(replyToken, pesan_dikirim, ""+gambar);
+                    gambar="";
                 }
             break;
         }
