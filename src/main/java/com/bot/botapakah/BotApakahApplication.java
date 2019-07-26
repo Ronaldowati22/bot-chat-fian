@@ -6,6 +6,7 @@ import com.linecorp.bot.model.Multicast;
 import com.linecorp.bot.model.ReplyMessage;
 import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
+import com.linecorp.bot.model.message.ImageMessage;
 import com.linecorp.bot.model.message.Message;
 import com.linecorp.bot.model.message.TextMessage;
 import com.linecorp.bot.model.action.MessageAction;
@@ -39,6 +40,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
 
     String pesan_dikirim="";
     String pesan_dua="";
+    String gambar="";
     String pesan2="";
     String id="";
 
@@ -71,6 +73,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         System.out.println("Harusnya si tanda tanya :"+cek);
 
         pesan_dikirim="";
+        gambar="";
         pesan_dua="";
 
         
@@ -80,19 +83,19 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         switch(pesan) {
             case "/rules":
                 String rules="Berikut aturan untuk menggunakan Chat Bot Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
-                balasChatDenganRandomJawaban(replyToken, rules);
+                balasChatDenganRandomJawaban(replyToken, rules, gambar);
                 break;
             case "terima kasih":
                 String terimakasih="Terima Kasih sudah menggunakan aplikasi ini.";
-                balasChatDenganRandomJawaban(replyToken, terimakasih);
+                balasChatDenganRandomJawaban(replyToken, terimakasih, gambar);
                 break;
             case "ya":
                 if(pesan2=="true"){
-                    balasChatDenganRandomJawaban(replyToken, pesan_dua);
+                    balasChatDenganRandomJawaban(replyToken, pesan_dua, gambar);
                     pesan2="";
                 }else{
                     String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
-                    balasChatDenganRandomJawaban(replyToken, error);
+                    balasChatDenganRandomJawaban(replyToken, error, gambar);
                 }
                 break;
             default:
@@ -101,11 +104,11 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                     lanjut=true;
                 }else{
                     String tandatanya="mohon untuk memberi tanda tanya '?' dan pastikan bahwa tidak ada huruf / character dibelakang tanda tanya.";
-                    balasChatDenganRandomJawaban(replyToken, tandatanya);
+                    balasChatDenganRandomJawaban(replyToken, tandatanya, gambar);
                 }
 
                 if(lanjut==true){
-                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim);
+                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim, gambar);
                 }
           }
 
@@ -149,7 +152,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
 
                 for(int i=0;i<array.length;i++){
                     int batas_minimal=0;
-                    String[] keyword = array[i][0].split(" ");
+                    String[] keyword = array[i][1].split(" ");
                     System.out.println("Isi Array : "+array[i]);
                     
                     for(int j=0;j<keyword.length;j++){
@@ -163,15 +166,19 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                         }
                         System.out.println("Jumlah Batas : " +batas_minimal);
                     }
-                    if(batas_minimal>=Integer.parseInt(array[i][1])){
-                        if(array[i][3].equals("Yes")){
-                            String hasil = array[i][2].replace("<>","\n");
-                            String hasil2 = array[i][4].replace("<>","\n");
+                    if(batas_minimal>=Integer.parseInt(array[i][2])){
+                        if(array[i][4].equals("Yes")){
+                            String hasil = array[i][3].replace("<>","\n");
+                            int idpesan = Integer.parseInt(array[i][5]);
+                            String hasil2 = array[idpesan][3].replace("<>","\n");
+                            String img = array[i][6];
+
                             pesan(hasil);
+                            pesangambar(img);
                             pesankedua(hasil2);
                             pesan2="true";
                         }else{
-                            String hasil = array[i][2].replace("<>","\n"); // Replace 'h' with 's'  
+                            String hasil = array[i][3].replace("<>","\n"); // Replace 'h' with 's'  
                             pesan(hasil);
                         }
                         
@@ -191,17 +198,22 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         this.pesan_dikirim=pesan;
     }
 
+    private void pesangambar(String gambar){
+        this.gambar=gambar;
+    }
+
     private void pesankedua(String pesan){
         this.pesan_dua=pesan;
     }
 
-    private void balasChatDenganRandomJawaban(String replyToken, String jawaban){
+    private void balasChatDenganRandomJawaban(String replyToken, String jawaban, String gambar){
         TextMessage jawabanDalamBentukTextMessage = new TextMessage(jawaban);
+        ImageMessage jawabanGambar = new ImageMessage(gambar,gambar);
         List<Message> multipesan=new ArrayList<>();
         Set<String> userid = new HashSet<>();
         userid.add(id);
         multipesan.add(jawabanDalamBentukTextMessage);
-        multipesan.add(jawabanDalamBentukTextMessage);
+        multipesan.add(jawabanGambar);
         Multicast multi = new Multicast(userid,multipesan);
         try {
             lineMessagingClient

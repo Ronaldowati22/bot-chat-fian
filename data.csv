@@ -1,7 +1,7 @@
-Keyword;Minimal Keyword;Pesan;Send;Pesan2
-cara mendaftar daftar online it telkom;5;Berikut merupakan tahapan pendaftaran onlinenya kak<>(Iki Ceritane Gambar);No;
-mendaftar daftar;1;Mungkin yang anda maksud:<>Cara mendaftar online IT Telkom?;Yes;Berikut merupakan tahapan pendaftaran onlinenya kak<>(Iki Ceritane Gambar)
-seleksi bagaimana tahapan seleksinya tahapanya;2;1. Tahap  satu.<>2. Tahap dua.<>3. Tahap tiga.<>4. dan seterusnya.;No;
-seleksi seleksinya;1;Mungkin yang anda maksud:<>Bagaimana tahapan seleksinya?;Yes;1. Tahap  satu.<>2. Tahap dua.<>3. Tahap tiga.<>4. dan seterusnya.
-program studi it telkom jurusan apa saja jurusanya studinya;5;Untuk jurusan yang ada di IT Telkom Purwokerto yaitu sebagai berikut:<>(Iki Ceritane Gambar);No;
-jurusan program studi;2;Mungkin yang anda maksud:<>Apa saja program studi yang ada di IT Telkom?;Yes;Untuk jurusan yang ada di IT Telkom Purwokerto yaitu sebagai berikut:<>(Iki Ceritane Gambar)
+ID;Keyword;Minimal Keyword;Pesan;Send;Pesan2;Gambar1;Gambar2
+1;cara mendaftar daftar online it telkom;5;Berikut merupakan tahapan pendaftaran onlinenya kak<>(Iki Ceritane Gambar);No;;;;
+2;mendaftar daftar;1;Mungkin yang anda maksud:<>Cara mendaftar online IT Telkom?;Yes;Berikut merupakan tahapan pendaftaran onlinenya kak<>(Iki Ceritane Gambar);;;
+3;seleksi bagaimana tahapan seleksinya tahapanya;2;1. Tahap  satu.<>2. Tahap dua.<>3. Tahap tiga.<>4. dan seterusnya.;No;;;;
+4;seleksi seleksinya;1;Mungkin yang anda maksud:<>Bagaimana tahapan seleksinya?;Yes;1. Tahap  satu.<>2. Tahap dua.<>3. Tahap tiga.<>4. dan seterusnya.;;;
+5;program studi it telkom jurusan apa saja jurusanya studinya;5;Untuk jurusan yang ada di IT Telkom Purwokerto yaitu sebagai berikut:<>(Iki Ceritane Gambar);No;;;;
+6;jurusan program studi;2;Mungkin yang anda maksud:<>Apa saja program studi yang ada di IT Telkom?;Yes;Untuk jurusan yang ada di IT Telkom Purwokerto yaitu sebagai berikut:;https://github.com/Awanggr/bot-chat/blob/master/images.png;https://github.com/Awanggr/bot-chat/blob/master/images.png;
