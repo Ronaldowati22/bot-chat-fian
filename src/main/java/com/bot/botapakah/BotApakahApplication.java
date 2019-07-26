@@ -73,7 +73,6 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         System.out.println("Harusnya si tanda tanya :"+cek);
 
         pesan_dikirim="";
-        gambar="";
         pesan_dua="";
 
         
@@ -175,6 +174,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
 
                             pesan(hasil);
                             pesangambar(img);
+                            System.out.print("Harusnya link gambar :"+img);
                             pesankedua(hasil2);
                             pesan2="true";
                         }else{
@@ -207,23 +207,34 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     }
 
     private void balasChatDenganRandomJawaban(String replyToken, String jawaban, String gambar){
-        TextMessage jawabanDalamBentukTextMessage = new TextMessage(jawaban);
-        ImageMessage jawabanGambar = new ImageMessage(gambar,gambar);
-        System.out.println(gambar);
-        List<Message> multipesan=new ArrayList<>();
-        Set<String> userid = new HashSet<>();
-
-        userid.add(id);
-        multipesan.add(jawabanDalamBentukTextMessage);
-        multipesan.add(jawabanGambar);
-
-        Multicast multi = new Multicast(userid,multipesan);
-        try {
-            lineMessagingClient
-                    .multicast(multi)
+        if(gambar.length()==0){
+            TextMessage jawabanDalamBentukTextMessage = new TextMessage(jawaban);
+            try {
+                lineMessagingClient
+                    .replyMessage(new ReplyMessage(replyToken, jawabanDalamBentukTextMessage))
                     .get();
-        } catch (InterruptedException | ExecutionException e) {
-            System.out.println("Ada error saat ingin membalas chat");
+            } catch (InterruptedException|ExecutionException e) {
+                System.out.println("Ada error saat ingin membalas chat biasa");
+            }
+        }else{
+            TextMessage jawabanDalamBentukTextMessage = new TextMessage(jawaban);
+            ImageMessage jawabanGambar = new ImageMessage(gambar,gambar);
+            System.out.println("Harusnya gambar :"+gambar);
+            List<Message> multipesan=new ArrayList<>();
+            Set<String> userid = new HashSet<>();
+    
+            userid.add(id);
+            multipesan.add(jawabanDalamBentukTextMessage);
+            multipesan.add(jawabanGambar);
+    
+            Multicast multi = new Multicast(userid,multipesan);
+            try {
+                lineMessagingClient
+                        .multicast(multi)
+                        .get();
+            } catch (InterruptedException | ExecutionException e) {
+                System.out.println("Ada error saat ingin membalas chat gambar");
+            }
         }
     }
 
