@@ -211,9 +211,11 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         ImageMessage jawabanGambar = new ImageMessage(gambar,gambar);
         List<Message> multipesan=new ArrayList<>();
         Set<String> userid = new HashSet<>();
+
         userid.add(id);
         multipesan.add(jawabanDalamBentukTextMessage);
-        multipesan.add(jawabanGambar);
+        multipesan.add(jawabanDalamBentukTextMessage);
+
         Multicast multi = new Multicast(userid,multipesan);
         try {
             lineMessagingClient
