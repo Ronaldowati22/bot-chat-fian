@@ -92,6 +92,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                     balasChatDenganRandomJawaban(replyToken, pesan_dua, ""+gambar);
                     pesan2="";
                     pesan_dua="";
+                    gambar="";
                 }else{
                     String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
                     balasChatDenganRandomJawaban(replyToken, error, ""+gambar);
