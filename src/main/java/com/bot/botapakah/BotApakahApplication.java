@@ -32,6 +32,8 @@ import java.util.concurrent.ExecutionException;
 public class BotApakahApplication extends SpringBootServletInitializer {
 
     String pesan_dikirim="";
+    String pesan_dua="";
+    Boolean pesan2=false;
 
     @Autowired
     private LineMessagingClient lineMessagingClient;
@@ -61,6 +63,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         System.out.println("Harusnya si tanda tanya :"+cek);
 
         pesan_dikirim="";
+        pesan_dua="";
 
         
         // System.out.println("Panjang data : "+panjang);
@@ -70,11 +73,19 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             case "/rules":
                 String rules="Berikut aturan untuk menggunakan Chat Bot Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
                 balasChatDenganRandomJawaban(replyToken, rules);
-              break;
+                break;
             case "terima kasih":
                 String terimakasih="Terima Kasih sudah menggunakan aplikasi ini.";
                 balasChatDenganRandomJawaban(replyToken, terimakasih);
-              break;
+                break;
+            case "ya":
+                if(pesan2==true){
+                    balasChatDenganRandomJawaban(replyToken, pesan_dua);
+                }else{
+                    String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
+                    balasChatDenganRandomJawaban(replyToken, error);
+                }
+                break;
             default:
                 if(cek=='?'){
                     compare(pesan);
@@ -148,8 +159,8 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                             String hasil = array[i][2].replace("<>","\n");
                             String hasil2 = array[i][4].replace("<>","\n");
                             pesan(hasil);
-                            // pesan(hasil2);
-                            send_pesan(hasil2);
+                            pesankedua(hasil2);
+                            pesan2=true;
                         }else{
                             String hasil = array[i][2].replace("<>","\n"); // Replace 'h' with 's'  
                             pesan(hasil);
@@ -171,8 +182,8 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         this.pesan_dikirim=pesan;
     }
 
-    private void send_pesan(String pesan){
-        pesan(pesan);
+    private void pesankedua(String pesan){
+        this.pesan_dua=pesan;
     }
 
     private void balasChatDenganRandomJawaban(String replyToken, String jawaban){
