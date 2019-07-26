@@ -214,7 +214,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
 
         userid.add(id);
         multipesan.add(jawabanDalamBentukTextMessage);
-        multipesan.add(jawabanDalamBentukTextMessage);
+        multipesan.add(jawabanGambar);
 
         Multicast multi = new Multicast(userid,multipesan);
         try {
