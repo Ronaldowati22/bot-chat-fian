@@ -73,7 +73,6 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         System.out.println("Harusnya si tanda tanya :"+cek);
 
         pesan_dikirim="";
-        pesan_dua="";
 
         
         // System.out.println("Panjang data : "+panjang);
@@ -92,20 +91,12 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                 if(pesan2=="true"){
                     balasChatDenganRandomJawaban(replyToken, pesan_dua, ""+gambar);
                     pesan2="";
+                    pesan_dua="";
                 }else{
                     String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
                     balasChatDenganRandomJawaban(replyToken, error, ""+gambar);
                 }
             break;
-            case "iya":
-            if(pesan2=="true"){
-                balasChatDenganRandomJawaban(replyToken, pesan_dua, ""+gambar);
-                pesan2="";
-            }else{
-                String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
-                balasChatDenganRandomJawaban(replyToken, error, ""+gambar);
-            }
-        break;
             default:
                 if(cek=='?'){
                     compare(pesan);
