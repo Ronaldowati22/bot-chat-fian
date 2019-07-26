@@ -33,7 +33,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
 
     String pesan_dikirim="";
     String pesan_dua="";
-    Boolean pesan2=false;
+    Boolean pesan2;
 
     @Autowired
     private LineMessagingClient lineMessagingClient;
@@ -57,6 +57,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         String replyToken = messageEvent.getReplyToken();
         char cek = pesan.charAt(pesan.length()-1);
         Boolean lanjut=false;
+        pesan2=false;
         
         System.out.println("Isi Pesan :"+pesan);
         System.out.println("Panjang Pesan :"+pesan.length());
