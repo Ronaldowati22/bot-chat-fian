@@ -81,11 +81,11 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         switch(pesan) {
             case "/rules"://untuk petunjuk penggunaan bot chat
                 String rules="Berikut aturan untuk menggunakan E-Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
-                balasChat(replyToken, rules, ""+gambar);
+                balasChat(replyToken, rules, "null");
             break;
             case "terima kasih"://memberikan balasan ucapan terima kasih untuk user 
                 String terimakasih="Terima kasih telah menggunakan E-Costumer Service IT Telkom Purwokerto.\nJika ada yang mau ditanyakan lagi bisa tanya disini ka atau datang dan kunjungi social media kami\n\nKawasan Pendidikan Telkom Jl. DI. Panjaitan No. 128 Purwokerto 53147, Jawa Tengah.\nFan Page: It Telkom Purwokerto\nInstagram: @join_ittp\nLine ID: @join_ittp\nWA/SMS/Telp: 081228319222\nHunting: (0281) – 641629, Fax : (0281) 641630";
-                balasChat(replyToken, terimakasih, ""+gambar);
+                balasChat(replyToken, terimakasih, "null");
             break;
             case "ya"://mengkonfirmasi jawaban yang diberikan bot
                 if(pesan2=="true"){
@@ -96,7 +96,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                     ya="";
                 }else{
                     String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
-                    balasChat(replyToken, error, ""+gambar);
+                    balasChat(replyToken, error, "null");
                 }
             break;
             default://selain jawaban diatas maka akan diproses oleh percabangan dibawah
@@ -105,7 +105,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                     lanjut=true;
                 }else{
                     String tandatanya="mohon untuk memberi tanda tanya '?' dan pastikan bahwa tidak ada huruf / character dibelakang tanda tanya.";
-                    balasChat(replyToken, tandatanya, ""+gambar);
+                    balasChat(replyToken, tandatanya, "null");
                 }
 
                 if(lanjut==true && ya=="yes"){
