@@ -81,11 +81,11 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         switch(pesan) {
             case "/rules"://untuk petunjuk penggunaan bot chat
                 String rules="Berikut aturan untuk menggunakan E-Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
-                balasChat(replyToken, rules, "");
+                balasChat(replyToken, rules, ""+gambar);
             break;
             case "terima kasih"://memberikan balasan ucapan terima kasih untuk user 
                 String terimakasih="Terima kasih telah menggunakan E-Costumer Service IT Telkom Purwokerto.\nJika ada yang mau ditanyakan lagi bisa tanya disini ka atau datang dan kunjungi social media kami\n\nKawasan Pendidikan Telkom Jl. DI. Panjaitan No. 128 Purwokerto 53147, Jawa Tengah.\nFan Page: It Telkom Purwokerto\nInstagram: @join_ittp\nLine ID: @join_ittp\nWA/SMS/Telp: 081228319222\nHunting: (0281) – 641629, Fax : (0281) 641630";
-                balasChat(replyToken, terimakasih, "");
+                balasChat(replyToken, terimakasih, ""+gambar);
             break;
             case "ya"://mengkonfirmasi jawaban yang diberikan bot
                 if(pesan2=="true"){
@@ -111,7 +111,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                 if(lanjut==true && ya=="yes"){
                     balasChat(replyToken, pesan_dikirim+pesan_tutup, ""+gambar);
                 }else{
-                    balasChat(replyToken, pesan_dikirim+pesan_tutup, "null");
+                    balasChat(replyToken, pesan_dikirim, "null");
                 }
             break;
         }
