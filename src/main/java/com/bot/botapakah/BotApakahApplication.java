@@ -80,7 +80,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         //percabangan pemberian jawaban
         switch(pesan) {
             case "/rules"://untuk petunjuk penggunaan bot chat
-                String rules="Berikut aturan untuk menggunakan E-Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
+                String rules="Berikut aturan untuk menggunakan E-Custumer Service IT Telkom Purwokerto\n1. Untuk pertanyaan diakhiri dengan tanda tanya '?'.\n2. Menggunakan bahasa yang baku, jangan bahasa gaul ya kak.\n3. Jika tidak ada yang mau ditanyakan lagi bisa ketik 'Terima Kasih'.";
                 balasChat(replyToken, rules, "null");
             break;
             case "terima kasih"://memberikan balasan ucapan terima kasih untuk user 
@@ -104,7 +104,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                     compare(pesan);
                     lanjut=true;
                 }else{
-                    String tandatanya="mohon untuk memberi tanda tanya '?' dan pastikan bahwa tidak ada huruf / character dibelakang tanda tanya.";
+                    String tandatanya="Mohon untuk memberi tanda tanya '?' dan pastikan bahwa tidak ada huruf / character dibelakang tanda tanya.";
                     balasChat(replyToken, tandatanya, "null");
                 }
 
