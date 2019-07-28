@@ -43,8 +43,8 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     String gambar="";
     String pesan2="";
     String id="";
-    String info="\n\nJika ada yang mau ditanyakan lagi bisa tanya disini ka atau datang dan kunjungi social media kami\n\nKawasan Pendidikan Telkom Jl. DI. Panjaitan No. 128 Purwokerto 53147, Jawa Tengah.\nFan Page: It Telkom Purwokerto\nInstagram: @join_ittp\nLine ID: @join_ittp\nWA/SMS/Telp: 081228319222\nHunting: (0281) – 641629, Fax : (0281) 641630";
     String ya="";
+    String pesan_tutup="\n\nJika tidak ada hal lain yang ingin ditanyakan silahkan balas atau ketik 'Terima Kasih' tanpa petik.";
 
     @Autowired
     private LineMessagingClient lineMessagingClient;
@@ -63,88 +63,88 @@ public class BotApakahApplication extends SpringBootServletInitializer {
     //  }
 
     @EventMapping
+    //Handling penerima text dari user
     public void handleTextEvent(MessageEvent<TextMessageContent> messageEvent){
-        String pesan = messageEvent.getMessage().getText().toLowerCase();
-        id = messageEvent.getSource().getUserId();
-        String replyToken = messageEvent.getReplyToken();
-        char cek = pesan.charAt(pesan.length()-1);
+        String pesan = messageEvent.getMessage().getText().toLowerCase();//Merubah text yang dikirim user menjadi lowercase
+        id = messageEvent.getSource().getUserId();//Mengambil id user pengirim
+        String replyToken = messageEvent.getReplyToken();//Mengambil token
+        char cek = pesan.charAt(pesan.length()-1);//variable penampung karakter terakhir (?)
         Boolean lanjut=false;
         
-        System.out.println("Isi Pesan :"+pesan);
-        System.out.println("Panjang Pesan :"+pesan.length());
-        System.out.println("Harusnya si tanda tanya :"+cek);
+        System.out.println("Isi Pesan :"+pesan);//Cek isi pesan
+        System.out.println("Panjang Pesan :"+pesan.length());//Melihat panjang isi pesan
+        System.out.println("Harusnya si tanda tanya :"+cek);//Cek isi variable cek, apakah tanda tanya atau bukan.
 
-        pesan_dikirim="";
+        pesan_dikirim="";//inisialisasi variable pesan dikirim menjadi kosong
 
-        
-        // System.out.println("Panjang data : "+panjang);
-        // System.out.println("Isi data : "+pesanSplit);
-
+        //percabangan pemberian jawaban
         switch(pesan) {
-            case "/rules":
-                String rules="Berikut aturan untuk menggunakan Chat Bot Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
-                balasChatDenganRandomJawaban(replyToken, rules, ""+gambar);
+            case "/rules"://untuk petunjuk penggunaan bot chat
+                String rules="Berikut aturan untuk menggunakan E-Custumer Service IT Telkom Purwokerto\n1. Gunakanlah bahasa yang baku.\n2. Perhatikan tulisan yang anda ketik.";
+                balasChat(replyToken, rules, "");
             break;
-            case "terima kasih":
-                String terimakasih="Terima Kasih sudah menggunakan aplikasi ini.";
-                balasChatDenganRandomJawaban(replyToken, terimakasih, ""+gambar);
+            case "terima kasih"://memberikan balasan ucapan terima kasih untuk user 
+                String terimakasih="Terima kasih telah menggunakan E-Costumer Service IT Telkom Purwokerto.\nJika ada yang mau ditanyakan lagi bisa tanya disini ka atau datang dan kunjungi social media kami\n\nKawasan Pendidikan Telkom Jl. DI. Panjaitan No. 128 Purwokerto 53147, Jawa Tengah.\nFan Page: It Telkom Purwokerto\nInstagram: @join_ittp\nLine ID: @join_ittp\nWA/SMS/Telp: 081228319222\nHunting: (0281) – 641629, Fax : (0281) 641630";
+                balasChat(replyToken, terimakasih, "");
             break;
-            case "ya":
+            case "ya"://mengkonfirmasi jawaban yang diberikan bot
                 if(pesan2=="true"){
-                    balasChatDenganRandomJawaban(replyToken, pesan_dua+info, ""+gambar);
+                    balasChat(replyToken, pesan_dua+pesan_tutup, ""+gambar);
                     pesan2="";
                     pesan_dua="";
                     gambar="";
                     ya="";
                 }else{
                     String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
-                    balasChatDenganRandomJawaban(replyToken, error, ""+gambar);
+                    balasChat(replyToken, error, ""+gambar);
                 }
             break;
-            default:
+            default://selain jawaban diatas maka akan diproses oleh percabangan dibawah
                 if(cek=='?'){
                     compare(pesan);
                     lanjut=true;
                 }else{
                     String tandatanya="mohon untuk memberi tanda tanya '?' dan pastikan bahwa tidak ada huruf / character dibelakang tanda tanya.";
-                    balasChatDenganRandomJawaban(replyToken, tandatanya, ""+gambar);
+                    balasChat(replyToken, tandatanya, ""+gambar);
                 }
 
                 if(lanjut==true && ya=="yes"){
-                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim, ""+gambar);
+                    balasChat(replyToken, pesan_dikirim+pesan_tutup, ""+gambar);
                 }else{
-                    balasChatDenganRandomJawaban(replyToken, pesan_dikirim+info, "null");
+                    balasChat(replyToken, pesan_dikirim+pesan_tutup, "null");
                 }
             break;
         }
     }
 
+    //membandingkan text user dengan keyword yang ada pada database
     private void compare(String isi_kiriman){
         String cleartext = isi_kiriman.substring(0, isi_kiriman.length()-1);
         System.out.println("Hasil clear text : "+cleartext);
         String[] pesanSplit = cleartext.split(" ");
         List<String[]> records = new ArrayList<>();
+
+        //membaca file data.csv dan dibandingkan dengan jawaban user
         try (BufferedReader br = new BufferedReader(new FileReader("./data.csv"))) {
             String line;
             if((line = br.readLine()) == null){
                 
             }else{
                 while ((line = br.readLine()) != null) {
-                    // String[] values = line.split(";");
-                    records.add(line.split(";"));
+                    records.add(line.split(";"));//memisahkan data.csv dengan pembatasnya ';'
                 }
-                String[][] array = new String[records.size()][0];
-                records.toArray(array);
+                String[][] array = new String[records.size()][0];//inisialisasi array dengan jumlah baris sebanyak record.size()
+                records.toArray(array);//memasukan hasil pembacaan data.csv kedalam array
 
-                for(int i=0;i<array.length;i++){
+                for(int i=0;i<array.length;i++){//perulangan untuk pembacaan perbaris dari data.csv yang sudah dirubah ke array
                     int batas_minimal=0;
                     String[] keyword = array[i][1].split(" ");
                     System.out.println("Isi Array : "+array[i]);
                     
-                    for(int j=0;j<keyword.length;j++){
+                    for(int j=0;j<keyword.length;j++){//melakukan pengecekan keyword dari data.csv
                         System.out.println("Keyword Array ke " + i + " : "+keyword[j]);
 
-                        for(int k=0;k<pesanSplit.length;k++){
+                        for(int k=0;k<pesanSplit.length;k++){//melakukan pembandingan keyword dari data dengan pertanyaan user
                             if(keyword[j].equals(pesanSplit[k])){
                                 batas_minimal=batas_minimal+1;
                                 System.out.println("Isi pesan : " +pesanSplit[k]);
@@ -152,23 +152,22 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                         }
                         System.out.println("Jumlah Batas : " +batas_minimal);
                     }
-                    if(batas_minimal>=Integer.parseInt(array[i][2])){
+                    if(batas_minimal>=Integer.parseInt(array[i][2])){//pengecekan persamaan antara pertanyaan yang user ajukan dengan database
                         if(array[i][4].equals("Yes")){
-                            String hasil = array[i][3].replace("<>","\n");
-                            int idpesan = Integer.parseInt(array[i][5]);
+                            String hasil = array[i][3].replace("<>","\n");//mengambil data pesan pada database kemudian mengganti <> dengan \n sebagai pengganti enter
+                            int idpesan = Integer.parseInt(array[i][5]);//mengambil id pesan pada database
                             System.out.print("Harusnya id pesan 2:"+idpesan);
-                            String hasil2 = array[idpesan-1][3].replace("<>","\n");
-                            String img = array[idpesan-1][6];
-                            // String img="";
+                            String hasil2 = array[idpesan-1][3].replace("<>","\n");//mengambil data pesan dengan id tertentu
+                            String img = array[idpesan-1][6];//menggambil link gambar pada database
                             System.out.print("Harusnya hasil pesan 2:"+hasil2);
 
-                            pesan(hasil);
-                            pesangambar(img);
+                            pesan(hasil);//inisialisasi pesan
+                            pesangambar(img);//inisialisasi link gambar
                             System.out.print("Harusnya link gambar :"+img);
-                            pesankedua(hasil2);
+                            pesankedua(hasil2);//inisialisasi pesan ke 2
                             pesan2="true";
                         }else{
-                            String hasil = array[i][3].replace("<>","\n"); // Replace 'h' with 's' 
+                            String hasil = array[i][3].replace("<>","\n");
                             String img = array[i][6];
                             System.out.print("Harusnya link gambar :"+img); 
                             pesangambar(img);
@@ -176,7 +175,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                             ya="yes";
                         }
                         break;
-                    }else{
+                    }else{//handling error jika pertanyaan tidak ada yang sesuai
                         String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
                         pesan(error);
                     }
@@ -199,8 +198,9 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         this.pesan_dua=pesan;
     }
 
-    private void balasChatDenganRandomJawaban(String replyToken, String jawaban, String gambar){
-        if(gambar.equals("null")){
+    private void balasChat(String replyToken, String jawaban, String gambar){
+        //percabangan untuk database yang memiliki link gambar
+        if(gambar.equals("null")){//percabangan untuk mengirim pesansaja
             TextMessage jawabanDalamBentukTextMessage = new TextMessage(jawaban);
             try {
                 lineMessagingClient
@@ -209,7 +209,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             } catch (InterruptedException|ExecutionException e) {
                 System.out.println("Ada error saat ingin membalas chat biasa");
             }
-        }else{
+        }else{//percabangan untuk mengirim pesan beserta gambar
             TextMessage jawabanDalamBentukTextMessage = new TextMessage(jawaban);
             ImageMessage jawabanGambar = new ImageMessage(gambar,gambar);
             System.out.println("Harusnya gambar :"+gambar);
