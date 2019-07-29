@@ -70,7 +70,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         String replyToken = messageEvent.getReplyToken();//Mengambil token
         char cek = pesan.charAt(pesan.length()-1);//variable penampung karakter terakhir (?)
         Boolean lanjut=false;
-        
+        //uji coba
         System.out.println("Isi Pesan :"+pesan);//Cek isi pesan
         System.out.println("Panjang Pesan :"+pesan.length());//Melihat panjang isi pesan
         System.out.println("Harusnya si tanda tanya :"+cek);//Cek isi variable cek, apakah tanda tanya atau bukan.
