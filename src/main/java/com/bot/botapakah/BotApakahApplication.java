@@ -110,6 +110,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
 
                 if(lanjut==true && ya=="yes"){
                     balasChat(replyToken, pesan_dikirim+pesan_tutup, ""+gambar);
+                    ya="";
                 }else{
                     balasChat(replyToken, pesan_dikirim, "null");
                 }
