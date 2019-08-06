@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<data>
+    <idcase id="1">
+        <keyword>cara mendaftar daftar online it telkom</keyword>
+        <minimal>5</minimal>
+        <pesan>Untuk tahapan pendaftaranya bisa dilihat pada gambar dibawah kak</pesan>
+        <repeat>no</repeat>
+        <case></case>
+        <image>https://i.ibb.co/R0wdTDb/caradaftar.png</image>
+    </idcase>
+    <idcase id="2">
+        <keyword> daftar mendaftar telkom</keyword>
+        <minimal>2</minimal>
+        <pesan>Mungkin yang anda maksud ini?</pesan>
+        <repeat>Yes</repeat>
+        <case>Untuk tahapan pendaftaranya bisa dilihat pada gambar dibawah kak</case>
+        <image>https://i.ibb.co/R0wdTDb/caradaftar.png</image>
+    </idcase>
+</data>

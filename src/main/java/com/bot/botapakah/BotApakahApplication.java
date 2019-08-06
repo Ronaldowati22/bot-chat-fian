@@ -17,6 +17,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.w3c.dom.Document;
 import org.json.*;
 
 import java.*;
@@ -33,6 +34,17 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
+
+import java.io.File;
+import java.util.ArrayList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 @SpringBootApplication
 @LineMessageHandler
@@ -101,7 +113,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
             break;
             default://selain jawaban diatas maka akan diproses oleh percabangan dibawah
                 if(cek=='?'){
-                    compare(pesan);
+                    compare_aiml(pesan);
                     lanjut=true;
                 }else{
                     String tandatanya="Mohon untuk memberi tanda tanya '?' dan pastikan bahwa tidak ada huruf / character dibelakang tanda tanya.";
@@ -118,8 +130,81 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         }
     }
 
+    private void compare_aiml(String pesan){
+        String cleartext = pesan.substring(0, pesan.length()-1);
+        System.out.println("Hasil clear text : "+cleartext);
+        String[] pesanSplit = cleartext.split(" ");
+        ArrayList<String[]> records = new ArrayList<>();
+        
+        try {
+            File file = new File("sample.aiml");
+            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+		
+            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+            Document document = documentBuilder.parse(file);
+		
+            document.getDocumentElement().normalize();
+		
+            System.out.println("Root element :" + document.getDocumentElement().getNodeName());
+            NodeList nodeList = document.getElementsByTagName("idcase");
+		
+            for (int index = 0; index < nodeList.getLength(); index++) {
+                Node node = nodeList.item(index);
+                int batas_minimal=0;
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) node;
+                    
+                    String[] keyword = eElement.getElementsByTagName("keyword").item(0).getTextContent().split(" ");
+                    
+                    for(int j=0;j<keyword.length;j++){//melakukan pengecekan keyword dari data.csv
+                        System.out.println("Keyword Array ke " + index + " : "+keyword[j]);
+
+                        for(int k=0;k<pesanSplit.length;k++){//melakukan pembandingan keyword dari data dengan pertanyaan user
+                            if(keyword[j].equals(pesanSplit[k])){
+                                batas_minimal=batas_minimal+1;
+                                System.out.println("Isi pesan : " +pesanSplit[k]);
+                            }
+                        }
+                        System.out.println("Jumlah Batas : " +batas_minimal);
+                    }
+                    
+                    if(batas_minimal>=Integer.parseInt(eElement.getElementsByTagName("minimal").item(0).getTextContent())){//pengecekan persamaan antara pertanyaan yang user ajukan dengan database
+                        if(eElement.getElementsByTagName("repeat").item(0).getTextContent().equals("Yes")){
+                            String hasil = eElement.getElementsByTagName("pesan").item(0).getTextContent().replace("<>","\n");//mengambil data pesan pada database kemudian mengganti <> dengan \n sebagai pengganti enter
+                            //int idpesan = Integer.parseInt(eElement.getElementsByTagName("case").item(0).getTextContent());//mengambil id pesan pada database
+                            //System.out.print("Harusnya id pesan 2:"+idpesan);
+                            String hasil2 = eElement.getElementsByTagName("repeat").item(0).getTextContent().replace("<>","\n");//mengambil data pesan dengan id tertentu
+                            String img = eElement.getElementsByTagName("image").item(0).getTextContent();//menggambil link gambar pada database
+                            System.out.print("Harusnya hasil pesan 2:"+hasil2);
+
+                            pesan(hasil);//inisialisasi pesan
+                            pesangambar(img);//inisialisasi link gambar
+                            System.out.print("Harusnya link gambar :"+img);
+                            pesankedua(hasil2);//inisialisasi pesan ke 2
+                            pesan2="true";
+                        }else{
+                            String hasil = eElement.getElementsByTagName("repeat").item(0).getTextContent().replace("<>","\n");
+                            String img = eElement.getElementsByTagName("image").item(0).getTextContent();
+                            System.out.print("Harusnya link gambar :"+img); 
+                            pesangambar(img);
+                            pesan(hasil);
+                            ya="yes";
+                        }
+                        break;
+                    }else{//handling error jika pertanyaan tidak ada yang sesuai
+                        String error="Mohon untuk memperhatikan bahasa yang anda gunakan.\nUntuk informasi lebih lanjut, anda bisa membaca aturan yang ditentukan.\nSilahkan ketik '/rules', Terima Kasih.";
+                        pesan(error);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
     //membandingkan text user dengan keyword yang ada pada database
-    private void compare(String isi_kiriman){
+    /*private void compare(String isi_kiriman){
         String cleartext = isi_kiriman.substring(0, isi_kiriman.length()-1);
         System.out.println("Hasil clear text : "+cleartext);
         String[] pesanSplit = cleartext.split(" ");
@@ -185,7 +270,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     private void pesan(String pesan){
         this.pesan_dikirim=pesan;
