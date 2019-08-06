@@ -173,7 +173,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                             String hasil = eElement.getElementsByTagName("pesan").item(0).getTextContent().replace("<>","\n");//mengambil data pesan pada database kemudian mengganti <> dengan \n sebagai pengganti enter
                             //int idpesan = Integer.parseInt(eElement.getElementsByTagName("case").item(0).getTextContent());//mengambil id pesan pada database
                             //System.out.print("Harusnya id pesan 2:"+idpesan);
-                            String hasil2 = eElement.getElementsByTagName("repeat").item(0).getTextContent().replace("<>","\n");//mengambil data pesan dengan id tertentu
+                            String hasil2 = eElement.getElementsByTagName("case").item(0).getTextContent().replace("<>","\n");//mengambil data pesan dengan id tertentu
                             String img = eElement.getElementsByTagName("image").item(0).getTextContent();//menggambil link gambar pada database
                             System.out.print("Harusnya hasil pesan 2:"+hasil2);
 
@@ -183,7 +183,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
                             pesankedua(hasil2);//inisialisasi pesan ke 2
                             pesan2="true";
                         }else{
-                            String hasil = eElement.getElementsByTagName("repeat").item(0).getTextContent().replace("<>","\n");
+                            String hasil = eElement.getElementsByTagName("case").item(0).getTextContent().replace("<>","\n");
                             String img = eElement.getElementsByTagName("image").item(0).getTextContent();
                             System.out.print("Harusnya link gambar :"+img); 
                             pesangambar(img);
