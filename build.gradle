@@ -33,7 +33,7 @@ dependencies {
     implementation 'com.linecorp.bot:line-bot-api-client:1.15.0'
 
     compile group: 'org.json', name: 'json', version: '20180130'
-    compile files('libs/ab.jar')
+    compile files('./libs/ab.jar')
 
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
