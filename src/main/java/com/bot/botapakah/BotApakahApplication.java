@@ -48,8 +48,9 @@ import org.w3c.dom.NodeList;
 
 import org.alicebot.ab.Bot;
 import org.alicebot.ab.Chat;
-
 import org.alicebot.*;
+
+
 
 @SpringBootApplication
 @LineMessageHandler
@@ -86,7 +87,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         id = messageEvent.getSource().getUserId();//Mengambil id user pengirim
         String replyToken = messageEvent.getReplyToken();//Mengambil token
 
-        Bot bot = new Bot("simplebot", "libs/");
+        Bot bot = new Bot("simplebot","libs/");
         Chat chatSession = new Chat(bot);
         
         String response = chatSession.multisentenceRespond(pesan);

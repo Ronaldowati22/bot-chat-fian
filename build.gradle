@@ -4,6 +4,7 @@ buildscript {
     }
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -21,20 +22,23 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'com.linecorp.bot:line-bot-spring-boot:1.15.0'
     implementation 'com.linecorp.bot:line-bot-servlet:1.15.0'
     implementation 'com.linecorp.bot:line-bot-model:1.15.0'
     implementation 'com.linecorp.bot:line-bot-api-client:1.15.0'
+    // compile group: 'org.goldrenard', name: 'ab', version: '1.0.7'
+
 
     compile group: 'org.json', name: 'json', version: '20180130'
-
-    compile files('libs/ab.jar')
+    compile files('libs/Ab.jar')
 
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
