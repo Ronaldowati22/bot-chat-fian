@@ -3,14 +3,28 @@
    <category>
       <pattern>cara mendaftar</pattern>
       <template>
-         cara mendaftar it Telkom purwokerto kaka bisa buka reg.ittelkom-pwt.ac.id DB aiml
+         cara <set name = "topic">mendaftar</set> it Telkom purwokerto kaka bisa buka reg.ittelkom-pwt.ac.id DB aiml
       </template>
    </category>
+
+   <topic name = "mendaftar">
+      <category>
+         <pattern> * </pattern>
+         <template>Watching good movie refreshes our minds.</template>
+      </category>
+      
+      <category>
+         <pattern> I LIKE WATCHING COMEDY! </pattern>
+         <template>I like comedy movies too.</template>
+      </category>
+      
+   </topic>
    
    <category>
       <pattern>cara mendaftar * it telkom purwokerto * online</pattern>
       <template>
          cara mendaftar it Telkom purwokerto kaka bisa buka reg.ittelkom-pwt.ac.id
+
          cara mendaftar it Telkom purwokerto kaka bisa buka reg.ittelkom-pwt.ac.id
       </template>
    </category>
