@@ -91,6 +91,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         Chat chatSession = new Chat(bot);
         
         String response = chatSession.multisentenceRespond(pesan);
+        System.out.println("Isi Response = "+response);
 
         balasChat(replyToken, response);
     }
