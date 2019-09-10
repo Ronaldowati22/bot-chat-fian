@@ -46,14 +46,6 @@
    </category>
 
    <category>
-      <pattern>tidak</pattern>
-	   <that>apakah tahapan pendaftaran yang anda maksud?(ya/tidak)</that>
-      <template>
-         silahkan ajukan pertanyaan lain.
-      </template>
-   </category>
-
-   <category>
       <pattern>*</pattern>
       <template>
          kata/pertanyaan "<star/>" tidak terdifinsi, silahkan coba kata /pertanyaan lain.
@@ -70,6 +62,7 @@
    <category>
       <pattern>P</pattern>
       <template>
+         jika yang anda maksud ini, berikut jawabanya.
           <srai>Q</srai>
       </template>
   </category>
