@@ -54,7 +54,7 @@
    </category>
 
    <category>
-      <pattern>_</pattern>
+      <pattern>*</pattern>
       <template>
          pertanyaan tidak terdeteksi, silahkan coba lagi.
       </template>
