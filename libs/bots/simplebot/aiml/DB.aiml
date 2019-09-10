@@ -7,11 +7,22 @@
          Untuk tahapan mendaftar it Telkom purwokerto secara online kaka bisa buka di reg.ittelkom-pwt.ac.id, terima kasih.
       </template>
    </category>
-   
+
    <category>
-      <pattern>pendaftaran online * it telkom </pattern>
+      <pattern>pendaftaran online *</pattern>
       <template>
-         Untuk tahapan mendaftar it Telkom purwokerto secara online kaka bisa buka di reg.ittelkom-pwt.ac.id, terima kasih.
+         Jika yang anda maksud mendaftar secara online, berikut hasilnya.
+   
+         <srai>cara mendaftar * it telkom * online</srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern>daftar online *</pattern>
+      <template>
+            Jika yang anda maksud mendaftar secara online, berikut hasilnya.
+      
+         <srai>cara mendaftar * it telkom * online</srai>
       </template>
    </category>
    
@@ -33,7 +44,7 @@
          
          7. Pendaftar yang mengikuti SBMPTN 2 kali, diperkenankan untuk menggunakan hasil nilai SBMPTN yang tertinggi (Bukti nilai di upload di web pendaftaran).
          
-         8. Pendaftaran dapat dilakukan melalui 3 cara: (1) Melalui Guru BK di sekolah
+         8. Pendaftaran dapat dilakukan melalui 3 cara: (1) Melalui Guru BK di sekolah.
       </template>
    </category>
    
