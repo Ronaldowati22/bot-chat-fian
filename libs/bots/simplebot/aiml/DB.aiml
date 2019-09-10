@@ -2,26 +2,31 @@
 <aiml>
 
    <category>
-      <pattern>cara mendaftar * it telkom purwokerto * online</pattern>
+      <pattern>cara mendaftar * it telkom * online</pattern>
       <template>
-         cara mendaftar it Telkom purwokerto kaka bisa buka reg.ittelkom-pwt.ac.id
-
-         cara mendaftar it Telkom purwokerto kaka bisa buka reg.ittelkom-pwt.ac.id
+         Untuk tahapan mendaftar it Telkom purwokerto secara online kaka bisa buka di reg.ittelkom-pwt.ac.id, terima kasih.
       </template>
    </category>
    
    <category>
-      <pattern>cara mendaftar</pattern>
+      <pattern>pendaftaran online * it telkom </pattern>
       <template>
-         Tata cara pendaftaran it Telkom purwokerto secara online, untuk lebih lengkapnya kaka bisa buka reg.ittelkom-pwt.ac.id .
+         Untuk tahapan mendaftar it Telkom purwokerto secara online kaka bisa buka di reg.ittelkom-pwt.ac.id, terima kasih.
       </template>
    </category>
    
    <category>
-      <pattern>my name is *</pattern>
+      <pattern>tahapan seleksi pendaftaran</pattern>
       <template>
-         Hello <star/> !!
-		 How can I help you ?
+         Jadi untuk tahapan seleksinya seperti ini kak:
+         1. Jalur Prestasi Siswa (JSA) merupakan jalur seleksi penerimaan mahasiswa baru di Institut Teknologi Telkom Purwokerto (ITTP) yang menekankan pada seleksi melalui nilai rapor atau nilai SBMPTN.
+         2. Jalur ini dibuka mulai 3 Juli sampai 31 Agustus 2019. Merupakan jalur pendaftaran TERAKHIR untuk tahun akademik 2019/2020.
+         3. Pendaftar bisa memilih salah satu model seleksi yakni menggunakan nilai rapor atau nilai SBMPTN. Bagi pendaftar yang mengikuti SBMPTN sangat dianjurkan untuk mengikuti seleksi menggunakan nilai SBMPTN.
+         4. Untuk seleksi rapor, yang digunakan adalah nilai rapor semester 1 – 5 dengan nilai rata-rata minimal 7,5 untuk mata pelajaran Matematika, Bahasa Indonesia, dan Bahasa Inggris. Sedangkan untuk nilai SBMPTN, passing grade yang digunakan adalah 451.
+         5. Biaya pendaftaran untuk Jalur Seleksi Akhir (JSA) ini sebesar 250.000 untuk 1 model seleksi: nilai rapor atau nilai SBMPTN. Apabila pendaftar ingin mengambil 2 model seleksi karena khawatir tidak lolos di salah satu model seleksi, maka harus mendaftar 2 kali sekaligus atau secara bergantian.
+         6. Bagi pendaftar yang mengikuti seleksi menggunakan nilai rapor dan menginginkan beasiswa, maka dapat mengajukan beasiswa dengan catatan memiliki prestasi di tingkat regional maupun nasional, baik prestai di bidang akademik maupun non akademik. Dengan demikian, di jalur ini beasiswa tidak dapat diberikan kepada pendaftar yang hanya memiliki nilai rapor (tidak memiliki prestasi).
+         7. Pendaftar yang mengikuti SBMPTN 2 kali, diperkenankan untuk menggunakan hasil nilai SBMPTN yang tertinggi (Bukti nilai di upload di web pendaftaran).
+         8. Pendaftaran dapat dilakukan melalui 3 cara: (1) Melalui Guru BK di sekolah
       </template>
    </category>
    
