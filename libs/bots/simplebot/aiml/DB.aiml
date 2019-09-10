@@ -56,7 +56,7 @@
    <category>
       <pattern>*</pattern>
       <template>
-         pertanyaan tidak terdeteksi, silahkan coba lagi.
+         kata/pertanyaan "<star/>" tidak terdifinsi, silahkan coba kata /pertanyaan lain.
       </template>
    </category>
 
@@ -67,13 +67,14 @@
       </template>
    </category>
 
-   <category><pattern>YES</pattern><that>ARE YOU TIRED</that>
-      <template>Maybe you should get some rest. I will still be here later.</template>
-      </category>
-      <category><pattern>NO</pattern><that>CAN YOU HEAR ME</that>
-      <template>Try adjusting the media volume on your device Settings.</template>
-      </category>
-      <category><pattern>*</pattern><that>WHAT IS YOUR NAME</that>
-      <template><srai>MY NAME IS <star/></srai></template>
-      </category>
+   <category>
+      <pattern>P</pattern>
+      <template>
+          <srai>Q</srai>
+      </template>
+  </category>
+  <category>
+      <pattern>Q</pattern>
+      <template>R</template>
+  </category>
 </aiml>
