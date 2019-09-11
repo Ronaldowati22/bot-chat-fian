@@ -91,9 +91,10 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         Chat chatSession = new Chat(bot);
         
         String response = chatSession.multisentenceRespond(pesan);
-        System.out.println("Isi Response = "+response);
+        String responsenospace = response.replaceAll("\\s+", "");
+        System.out.println("Isi Response = "+responsenospace);
 
-        balasChat(replyToken, response);
+        balasChat(replyToken, responsenospace);
     }
 
     private void balasChat(String replyToken, String jawaban){
