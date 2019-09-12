@@ -1,6 +1,7 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <aiml version="2.0">
 
+   <!-- Pertanyaan ke 1 -->
    <category>
       <pattern>cara mendaftar * it telkom * online</pattern>
       <template>
@@ -9,7 +10,7 @@
    </category>
 
    <category>
-      <pattern>pendaftaran online *</pattern>
+      <pattern>pendaftaran online</pattern>
       <template>
          Jika yang anda maksud mendaftar secara online, berikut hasilnya.
    
@@ -18,7 +19,61 @@
    </category>
 
    <category>
-      <pattern>daftar online *</pattern>
+      <pattern>daftar online</pattern>
+      <template>
+            Jika yang anda maksud mendaftar secara online, berikut hasilnya.
+      
+         <srai>cara mendaftar * it telkom * online</srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern>* pendaftaran online *</pattern>
+      <template>
+         Jika yang anda maksud mendaftar secara online, berikut hasilnya.
+   
+         <srai>cara mendaftar * it telkom * online</srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern>* daftar online *</pattern>
+      <template>
+            Jika yang anda maksud mendaftar secara online, berikut hasilnya.
+      
+         <srai>cara mendaftar * it telkom * online</srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern>* pendaftaran online </pattern>
+      <template>
+         Jika yang anda maksud mendaftar secara online, berikut hasilnya.
+   
+         <srai>cara mendaftar * it telkom * online</srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern>* daftar online </pattern>
+      <template>
+            Jika yang anda maksud mendaftar secara online, berikut hasilnya.
+      
+         <srai>cara mendaftar * it telkom * online</srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern> pendaftaran online *</pattern>
+      <template>
+         Jika yang anda maksud mendaftar secara online, berikut hasilnya.
+   
+         <srai>cara mendaftar * it telkom * online</srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern> daftar online *</pattern>
       <template>
             Jika yang anda maksud mendaftar secara online, berikut hasilnya.
       
@@ -26,8 +81,11 @@
       </template>
    </category>
    
+   
+<!-- Pertanyaan ke 2 -->
+
    <category>
-      <pattern>tahapan seleksi pendaftaran</pattern>
+      <pattern>tahapan seleksi</pattern>
       <template>
          Jadi untuk tahapan seleksinya seperti ini kak:
          1. Jalur Prestasi Siswa (JSA) merupakan jalur seleksi penerimaan mahasiswa baru di Institut Teknologi Telkom Purwokerto (ITTP) yang menekankan pada seleksi melalui nilai rapor atau nilai SBMPTN.
@@ -42,32 +100,85 @@
    </category>
 
    <category>
-      <pattern> pendaftaran </pattern>
+      <pattern> tahapan seleksi </pattern>
       <template>
-         Jika yang anda maksud tahapan pendaftaran, berikut hasilnya.
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
 
-         <srai>tahapan seleksi pendaftaran</srai>
+         <srai>tahapan seleksi </srai>
       </template>
    </category>
    
    <category>
-      <pattern> daftar online </pattern>
+      <pattern> seleksi </pattern>
       <template>
-         Jika yang anda maksud tahapan pendaftaran, berikut hasilnya.
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
 
-         <srai>tahapan seleksi pendaftaran</srai>
+         <srai>tahapan seleksi </srai>
       </template>
    </category>
 
    <category>
-      <pattern> tahapan pendaftaran </pattern>
+      <pattern> seleksinya </pattern>
       <template>
-         Jika yang anda maksud tahapan pendaftaran, berikut hasilnya.
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
 
-         <srai>tahapan seleksi pendaftaran</srai>
+         <srai>tahapan seleksi </srai>
       </template>
    </category>
 
+   <category>
+      <pattern> * tahapan seleksi </pattern>
+      <template>
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
+
+         <srai>tahapan seleksi </srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern> * seleksi </pattern>
+      <template>
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
+
+         <srai>tahapan seleksi </srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern> * seleksinya </pattern>
+      <template>
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
+
+         <srai>tahapan seleksi </srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern> * tahapan seleksi *</pattern>
+      <template>
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
+
+         <srai>tahapan seleksi </srai>
+      </template>
+   </category>
+   
+   <category>
+      <pattern> * seleksi *</pattern>
+      <template>
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
+
+         <srai>tahapan seleksi </srai>
+      </template>
+   </category>
+
+   <category>
+      <pattern> * seleksinya *</pattern>
+      <template>
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
+
+         <srai>tahapan seleksi </srai>
+      </template>
+   </category>
 
    <category>
       <pattern>*</pattern>
