@@ -43,6 +43,9 @@
    
    <category>
       <pattern>tahapan</pattern>
+      <pattern>tahapan?</pattern>
+      <pattern>tahapan daftar</pattern>
+      <pattern>daftar telkom</pattern>
       <template>
          Jika yang anda maksud tahapan pendaftaran, berikut hasilnya.
 
