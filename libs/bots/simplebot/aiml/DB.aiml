@@ -192,7 +192,7 @@
    <category>
       <pattern>kampus telkom</pattern>
       <template>
-         Institut Teknologi Telkom Purwokerto (ITTP) adalah perguruan tinggi di bawah naungan Yayasan Pendidikan Telkom yang didukung kerjasama dengan 22 Perguruan Tinggi luar negeri. beberapa keunggulan Institut Teknologi Telkom Purwokerto diantaranya: Pertama dan satu-satunya Institut Teknologi di Jawa Tengah, Mendapatkan dukungan penuh dari Telkom Group, Menerapkan pola Link and Match dengan industri ICT, Sertikasi program CCNA NIIT, TOEFL, dan TOEIC untuk mahasiswa, terbukti bahwa 83% lulusannya telah bekerja sebelum wisuda, dan Menerapkan sistem manajemen mutu standar Internasional ISO 9001:2015.Untuk program studi di it telkom purwokerto terdapat 8 program studi, untuk lebih jelasnya bisa dilihat di gambar dibawah.#https://i.ibb.co/NmzqQbL/programstudi.png
+         Institut Teknologi Telkom Purwokerto (ITTP) adalah perguruan tinggi di bawah naungan Yayasan Pendidikan Telkom yang didukung kerjasama dengan 22 Perguruan Tinggi luar negeri. beberapa keunggulan Institut Teknologi Telkom Purwokerto diantaranya: Pertama dan satu-satunya Institut Teknologi di Jawa Tengah, Mendapatkan dukungan penuh dari Telkom Group, Menerapkan pola Link and Match dengan industri ICT, Sertikasi program CCNA NIIT, TOEFL, dan TOEIC untuk mahasiswa, terbukti bahwa 83% lulusannya telah bekerja sebelum wisuda, dan Menerapkan sistem manajemen mutu standar Internasional ISO 9001:2015.
       </template>
    </category>
    <category>
@@ -229,6 +229,45 @@
    </category>
    <!-- apa itu kampus Telkom ?/ kapus Telkom itu apa? / it Telkom itu kampus bagaimana bagaimana? -->
    <!-- Pertanyaan ke 5 -->
+   <category>
+      <pattern>biaya </pattern>
+      <template>
+            Untuk biaya pendaftaran dan biaya pendidikan bisa dilihat detailnya digambar dibawah.#https://i.ibb.co/rxQ4ntr/biayasemester.png
+      </template>
+   </category>
+
+   <category>
+      <pattern> * biaya bulananya </pattern>
+      <template>
+         Jika yang anda maksud biaya persemester, berikut hasilnya.
+   
+         <srai>biaya </srai>
+      </template>
+   </category>
+   <category>
+      <pattern> * biaya semesteran </pattern>
+      <template>
+         Jika yang anda maksud biaya persemester, berikut hasilnya.
+      
+         <srai>biaya </srai>
+      </template>
+    </category>
+    <category>
+         <pattern> * biaya persemester </pattern>
+         <template>
+            Jika yang anda maksud biaya persemester, berikut hasilnya.
+         
+            <srai>biaya </srai>
+         </template>
+       </category>
+    <category>
+         <pattern> * biaya per semester </pattern>
+         <template>
+            Jika yang anda maksud biaya persemester, berikut hasilnya.
+         
+            <srai>biaya </srai>
+         </template>
+       </category>
    <!-- biaya di kmapus berapa?/ berapa biaa pendaftaran?/ biaya persemester berapa ya? -->
    <!-- Pertanyaan ke 6 -->
    <!-- apa visi misi IT Telkom purwokerto?/ visi misi kamus apa?/ kampus Telkom punya visi misi?/ visi misinya kampus Telkom apa ya? -->
