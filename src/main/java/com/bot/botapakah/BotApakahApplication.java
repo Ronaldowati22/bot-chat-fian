@@ -96,7 +96,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         System.out.println("Isi Split 1 = "+arrOfStr[0]);
         System.out.println("Isi Split 2 = "+arrOfStr[1]);
 
-        if(!arrOfStr[1].equals(null)){
+        if(arrOfStr.length==2&&!arrOfStr[1].equals(null)){
             balasChatGambar(replyToken, arrOfStr[0], arrOfStr[1]);
         }else{
             balasChat(replyToken, responsenospace);
