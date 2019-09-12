@@ -40,12 +40,18 @@
          8. Pendaftaran dapat dilakukan melalui 3 cara: (1) Melalui Guru BK di sekolah.
       </template>
    </category>
+
+   <category>
+      <pattern>* pendaftaran *</pattern>
+      <template>
+         Jika yang anda maksud tahapan pendaftaran, berikut hasilnya.
+
+         <srai>tahapan seleksi pendaftaran</srai>
+      </template>
+   </category>
    
    <category>
-      <pattern>tahapan</pattern>
-      <pattern>tahapan?</pattern>
-      <pattern>tahapan daftar</pattern>
-      <pattern>daftar telkom</pattern>
+      <pattern>* daftar telkom *</pattern>
       <template>
          Jika yang anda maksud tahapan pendaftaran, berikut hasilnya.
 
@@ -54,28 +60,19 @@
    </category>
 
    <category>
+      <pattern>* tahapan pendaftaran *</pattern>
+      <template>
+         Jika yang anda maksud tahapan pendaftaran, berikut hasilnya.
+
+         <srai>tahapan seleksi pendaftaran</srai>
+      </template>
+   </category>
+
+
+   <category>
       <pattern>*</pattern>
       <template>
          kata/pertanyaan "<star/>" tidak terdifinsi, silahkan coba kata /pertanyaan lain.
       </template>
    </category>
-
-   <category>
-      <pattern>cape</pattern>
-      <template>
-         ARE YOU TIRED
-      </template>
-   </category>
-
-   <category>
-      <pattern>P</pattern>
-      <template>
-         jika yang anda maksud ini, berikut jawabanya.
-         <srai>Q</srai>
-      </template>
-  </category>
-  <category>
-      <pattern>Q</pattern>
-      <template>R</template>
-  </category>
 </aiml>
