@@ -92,7 +92,7 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         
         String response = chatSession.multisentenceRespond(pesan);
         String responsenospace = response.replaceAll("\\s+\\s+\\s+\\s+\\s+\\s+\\s+\\s+\\s+", "\n\n");
-        String[] arrOfStr = responsenospace.split("<>", 2);
+        String[] arrOfStr = responsenospace.split("|", 2);
         System.out.println("Isi Split 1 = "+arrOfStr[0]);
         System.out.println("Isi Split 2 = "+arrOfStr[1]);
 
