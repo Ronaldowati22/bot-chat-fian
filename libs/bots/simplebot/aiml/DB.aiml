@@ -181,8 +181,52 @@
    </category>
 
    <!-- Pertanyaan ke 3 -->
+   <category>
+      <pattern> * program studi * </pattern>
+      <template>
+         Untuk program studi di it telkom purwokerto terdapat 8 program studi, untuk lebih jelasnya bisa dilihat di gambar dibawah.#https://i.ibb.co/NmzqQbL/programstudi.png
+      </template>
+   </category>
    <!-- apa saja Program studi di it telkom purwokerto ?/ jurusannya apa saja?/ apa saja jurusannya? Apa saja program studinya?apa saja Program studi di it telkom purwokerto ?/ jurusannya apa saja?/ apa saja jurusannya? Apa saja program studinya? -->
    <!-- Pertanyaan ke 4 -->
+   <category>
+      <pattern>kampus telkom</pattern>
+      <template>
+         Institut Teknologi Telkom Purwokerto (ITTP) adalah perguruan tinggi di bawah naungan Yayasan Pendidikan Telkom yang didukung kerjasama dengan 22 Perguruan Tinggi luar negeri. beberapa keunggulan Institut Teknologi Telkom Purwokerto diantaranya: Pertama dan satu-satunya Institut Teknologi di Jawa Tengah, Mendapatkan dukungan penuh dari Telkom Group, Menerapkan pola Link and Match dengan industri ICT, Sertikasi program CCNA NIIT, TOEFL, dan TOEIC untuk mahasiswa, terbukti bahwa 83% lulusannya telah bekerja sebelum wisuda, dan Menerapkan sistem manajemen mutu standar Internasional ISO 9001:2015.Untuk program studi di it telkom purwokerto terdapat 8 program studi, untuk lebih jelasnya bisa dilihat di gambar dibawah.#https://i.ibb.co/NmzqQbL/programstudi.png
+      </template>
+   </category>
+   <category>
+      <pattern> * kampus telkom * </pattern>
+      <template>
+         Jika yang anda maksud apa itu kampus telkom, berikut hasilnya.
+
+         <srai>kampus telkom </srai>
+      </template>
+   </category>
+   <category>
+      <pattern> * kampus it telkom * </pattern>
+      <template>
+         Jika yang anda maksud apa itu kampus telkom, berikut hasilnya.
+
+         <srai>kampus telkom </srai>
+      </template>
+   </category>
+   <category>
+      <pattern> * kampus it telkom </pattern>
+      <template>
+         Jika yang anda maksud apa itu kampus telkom, berikut hasilnya.
+
+         <srai>kampus telkom </srai>
+      </template>
+   </category>
+   <category>
+      <pattern> * kampus telkom </pattern>
+      <template>
+         Jika yang anda maksud apa itu kampus telkom, berikut hasilnya.
+
+         <srai>kampus telkom </srai>
+      </template>
+   </category>
    <!-- apa itu kampus Telkom ?/ kapus Telkom itu apa? / it Telkom itu kampus bagaimana bagaimana? -->
    <!-- Pertanyaan ke 5 -->
    <!-- biaya di kmapus berapa?/ berapa biaa pendaftaran?/ biaya persemester berapa ya? -->
