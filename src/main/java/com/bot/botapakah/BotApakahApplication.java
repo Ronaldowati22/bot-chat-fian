@@ -96,7 +96,12 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         System.out.println("Isi Split 1 = "+arrOfStr[0]);
         System.out.println("Isi Split 2 = "+arrOfStr[1]);
 
-        balasChat(replyToken, responsenospace);
+        if(!arrOfStr[1].equals(null)){
+            balasChatGambar(replyToken, arrOfStr[0], arrOfStr[1]);
+        }else{
+            balasChat(replyToken, responsenospace);
+        }
+        
     }
 
     private void balasChat(String replyToken, String jawaban){
@@ -108,6 +113,26 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         } catch (InterruptedException|ExecutionException e) {
             System.out.println("Ada error saat ingin membalas chat biasa");
         }
+    }
+
+    private void balasChatGambar(String replyToken, String jawaban, String gambar){
+        TextMessage jawabanDalamBentukTextMessage = new TextMessage(jawaban);
+        ImageMessage jawabanDenganGambar = new ImageMessage(gambar, gambar);
+        List<Message> multipesan=new ArrayList<>();
+            Set<String> userid = new HashSet<>();
+    
+            userid.add(id);
+            multipesan.add(jawabanDalamBentukTextMessage);
+            multipesan.add(jawabanDenganGambar);
+    
+            Multicast multi = new Multicast(userid,multipesan);
+            try {
+                lineMessagingClient
+                        .multicast(multi)
+                        .get();
+            } catch (InterruptedException | ExecutionException e) {
+                System.out.println("Ada error saat ingin membalas chat gambar");
+            }
     }
     //\n         
 
