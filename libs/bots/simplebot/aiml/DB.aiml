@@ -180,6 +180,22 @@
       </template>
    </category>
 
+   <!-- Pertanyaan ke 3 -->
+   <!-- apa saja Program studi di it telkom purwokerto ?/ jurusannya apa saja?/ apa saja jurusannya? Apa saja program studinya?apa saja Program studi di it telkom purwokerto ?/ jurusannya apa saja?/ apa saja jurusannya? Apa saja program studinya? -->
+   <!-- Pertanyaan ke 4 -->
+   <!-- apa itu kampus Telkom ?/ kapus Telkom itu apa? / it Telkom itu kampus bagaimana bagaimana? -->
+   <!-- Pertanyaan ke 5 -->
+   <!-- biaya di kmapus berapa?/ berapa biaa pendaftaran?/ biaya persemester berapa ya? -->
+   <!-- Pertanyaan ke 6 -->
+   <!-- apa visi misi IT Telkom purwokerto?/ visi misi kamus apa?/ kampus Telkom punya visi misi?/ visi misinya kampus Telkom apa ya? -->
+   <!-- Pertanyaan ke 7 -->
+   <!-- apa saja UKM di kampus? / UKM it Telkom apa saja? / fasilitas ukm apa saja yang tersedia di kampus? -->
+   <!-- Pertanyaan ke 8 -->
+   <!-- apa saja fasilitas kampus? / fasilitas it Telkom apa saja? / kampus Telkom tersedia kampus apa ya?/ apa saja yang tersedia di kampus Telkom? -->
+   <!-- Pertanyaan ke 9 -->
+   <!-- lamat kamus dimana?/ Lokasi kampus dimana ?/ posisi kampus dimana? -->
+   <!-- Pertanyaan ke 10 -->
+   <!-- Tempat Umum Institut Teknologi Telkom Purwokerto Terdekat?/ fasilitas terdekat/ apa saja yang di sekitar kampus?  -->
    <category>
       <pattern>*</pattern>
       <template>
