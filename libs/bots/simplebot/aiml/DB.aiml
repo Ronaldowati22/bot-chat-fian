@@ -42,7 +42,7 @@
    </category>
 
    <category>
-      <pattern>* pendaftaran _</pattern>
+      <pattern> pendaftaran </pattern>
       <template>
          Jika yang anda maksud tahapan pendaftaran, berikut hasilnya.
 
@@ -51,7 +51,7 @@
    </category>
    
    <category>
-      <pattern>* daftar online _</pattern>
+      <pattern> daftar online </pattern>
       <template>
          Jika yang anda maksud tahapan pendaftaran, berikut hasilnya.
 
@@ -60,7 +60,7 @@
    </category>
 
    <category>
-      <pattern>* tahapan pendaftaran _</pattern>
+      <pattern> tahapan pendaftaran </pattern>
       <template>
          Jika yang anda maksud tahapan pendaftaran, berikut hasilnya.
 
