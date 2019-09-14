@@ -92,7 +92,8 @@ public class BotApakahApplication extends SpringBootServletInitializer {
         
         String response = chatSession.multisentenceRespond(pesan);
         String responsenospace = response.replaceAll("\\s+\\s+\\s+\\s+\\s+\\s+\\s+\\s+\\s+", "\n");
-        String[] arrOfStr = responsenospace.split("#", 2);
+        String responseenter = responsenospace.replaceAll("%", "\n");
+        String[] arrOfStr = responseenter.split("#", 2);
 
         if(arrOfStr.length==2){
             if(!arrOfStr[1].equals(null)){
