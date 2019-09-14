@@ -111,7 +111,7 @@
    <category>
       <pattern> seleksi </pattern>
       <template>
-         Jika yang anda maksud tahapan seleksi, berikut hasilnya.$
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
          
          <srai>tahapan seleksi </srai>
       </template>
@@ -120,7 +120,7 @@
    <category>
       <pattern> seleksinya </pattern>
       <template>
-         Jika yang anda maksud tahapan seleksi, berikut hasilnya.$
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
 
          <srai>tahapan seleksi </srai>
       </template>
@@ -129,7 +129,7 @@
    <category>
       <pattern> * tahapan seleksi </pattern>
       <template>
-         Jika yang anda maksud tahapan seleksi, berikut hasilnya.$
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
 
          <srai>tahapan seleksi</srai>
       </template>
@@ -138,7 +138,7 @@
    <category>
       <pattern> * seleksi </pattern>
       <template>
-         Jika yang anda maksud tahapan seleksi, berikut hasilnya.$
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
 
          <srai>tahapan seleksi </srai>
       </template>
@@ -147,7 +147,7 @@
    <category>
       <pattern> * seleksinya </pattern>
       <template>
-         Jika yang anda maksud tahapan seleksi, berikut hasilnya.$
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
 
          <srai>tahapan seleksi </srai>
       </template>
@@ -156,7 +156,7 @@
    <category>
       <pattern> * tahapan seleksi *</pattern>
       <template>
-         Jika yang anda maksud tahapan seleksi, berikut hasilnya.$
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
 
          <srai>tahapan seleksi</srai>
       </template>
@@ -165,7 +165,7 @@
    <category>
       <pattern> * seleksi *</pattern>
       <template>
-         Jika yang anda maksud tahapan seleksi, berikut hasilnya.$
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
 
          <srai>tahapan seleksi </srai>
       </template>
@@ -174,7 +174,7 @@
    <category>
       <pattern> * seleksinya *</pattern>
       <template>
-         Jika yang anda maksud tahapan seleksi, berikut hasilnya.$
+         Jika yang anda maksud tahapan seleksi, berikut hasilnya.
 
          <srai>tahapan seleksi </srai>
       </template>
