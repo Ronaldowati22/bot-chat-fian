@@ -284,14 +284,258 @@
 
       </template>
    </category>
+   <category>
+      <pattern> visi dan misi *</pattern>
+      <template>
+         Jika yang anda maksud visi dan misi IT Telkom, berikut hasilnya.
+         
+         <srai>visi misi</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>* visi dan misi *</pattern>
+      <template>
+         Jika yang anda maksud visi dan misi IT Telkom, berikut hasilnya.
+         
+         <srai>visi misi</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>* visi misi *</pattern>
+      <template>
+         Jika yang anda maksud visi dan misi IT Telkom, berikut hasilnya.
+         
+         <srai>visi misi</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>visi misi *</pattern>
+      <template>
+         Jika yang anda maksud visi dan misi IT Telkom, berikut hasilnya.
+         
+         <srai>visi misi</srai>
+      </template>
+   </category>
    <!-- apa visi misi IT Telkom purwokerto?/ visi misi kamus apa?/ kampus Telkom punya visi misi?/ visi misinya kampus Telkom apa ya? -->
    <!-- Pertanyaan ke 7 -->
+   <category>
+      <pattern>UKM</pattern>
+      <template>
+         Berikut merupakan Daftar UKM di IT Telkom Purwokerto.
+         $1. UKM Bulu Tangkis
+         2. UKM Bola Basket
+         3. UKM Tennis Meja
+         4. UKM Jujitsu
+         5. UKM Catur
+         6. UKM Volley Ball
+         7. UKM Futsal
+         8. UKM Wapala
+         9. UKM Manggala
+         10. UKM Racana
+         11. Paduan Suara Telkomnica Voice
+         12. Seksi Kerohanian Islam (SKI)
+         13. Persekutuan Mahasiswa Kristen
+         14.Keluarga Mahasiswa Katholik
+         15. Keluarga Mahasiswa Hindu Saraswati
+         16. UKM Merpati Putih
+         17. UKM Musik dan Tari
+         18. UKM Karate
+         19. UKM Astralic
+         20. UKM Fotografi
+         21. UKM IPTEK.
+      </template>
+   </category>
+   <category>
+      <pattern>daftar ukm *</pattern>
+      <template>
+         Jika yang anda maksud Daftar UKM di IT Telkom, berikut hasilnya.
+         
+         <srai>UKM</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>* ukm *</pattern>
+      <template>
+         Jika yang anda maksud Daftar UKM di IT Telkom, berikut hasilnya.
+         
+         <srai>UKM</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>* daftar ukm *</pattern>
+      <template>
+         Jika yang anda maksud Daftar UKM di IT Telkom, berikut hasilnya.
+         
+         <srai>UKM</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>* ukm *</pattern>
+      <template>
+         Jika yang anda maksud Daftar UKM di IT Telkom, berikut hasilnya.
+         
+         <srai>UKM</srai>
+      </template>
+   </category>
    <!-- apa saja UKM di kampus? / UKM it Telkom apa saja? / fasilitas ukm apa saja yang tersedia di kampus? -->
    <!-- Pertanyaan ke 8 -->
+   <category>
+      <pattern>fasilitas</pattern>
+      <template>
+         Berikut merupakan Fasilitas yang disediakan IT Telkom Purwokerto.
+         $1. Ruang Kelas Full AC
+         2. Laboratorium Bahasa dan Multimedia
+         3. Laboratorium Teknik Elektronika
+         4. Laboratorium Audio Video
+         5. Laboratorium Teknik Elektro dan Digital
+         6. Laboratorium VSAT
+         7. Laboratorium Switching
+         8. Laboratorium Transmisi
+         9. Laboratorium Komputer Aplikasi
+         10. Laboratorium Komputer Jaringan
+         11. Perpustakaan
+         12. Kantin Terpadu
+         13. Masjid
+         14. Sarana Olahraga
+         15. Auditorium
+         16. Hotspot up to 5 x 100 Mbps
+         17. Radio Kampus
+         18. Gazebo Tempat Belajar
+         19. Koperasi
+         20. Ruang Gym
+         21. Klinik Kesehatan
+         22. dll
+      </template>
+   </category>
+   <category>
+      <pattern>* fasilitas  *</pattern>
+      <template>
+         Jika yang anda maksud Fasilitas yang disediakan IT Telkom, berikut hasilnya.
+         
+         <srai>fasilitas</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>* kelengkapan  *</pattern>
+      <template>
+         Jika yang anda maksud Fasilitas yang disediakan IT Telkom, berikut hasilnya.
+         
+         <srai>fasilitas</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>fasilitas  *</pattern>
+      <template>
+         Jika yang anda maksud Fasilitas yang disediakan IT Telkom, berikut hasilnya.
+         
+         <srai>fasilitas</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>kelengkapan  *</pattern>
+      <template>
+         Jika yang anda maksud Fasilitas yang disediakan IT Telkom, berikut hasilnya.
+         
+         <srai>fasilitas</srai>
+      </template>
+   </category>
    <!-- apa saja fasilitas kampus? / fasilitas it Telkom apa saja? / kampus Telkom tersedia kampus apa ya?/ apa saja yang tersedia di kampus Telkom? -->
    <!-- Pertanyaan ke 9 -->
+   <category>
+      <pattern>kontak</pattern>
+      <template>
+         Berikut merupakan Alamat dan Kontak IT Telkom Purwokerto.
+         $Kawasan Pendidikan Telkom Jl. DI. Panjaitan No. 128 Purwokerto 53147, Jawa Tengah 
+         Fan Page: It Telkom Purwokerto
+         Instagram: @join_ittp 
+         Line ID: @join_ittp 
+         WA/SMS/Telp: 081228319222 
+         Hunting: (0281) – 641629, Fax : (0281) 641630
+      </template>
+   </category>
+   <category>
+      <pattern>* alamat *</pattern>
+      <template>
+         Jika yang anda maksud Alamat IT Telkom, berikut hasilnya.
+         
+         <srai>kontak</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>alamat *</pattern>
+      <template>
+         Jika yang anda maksud Alamat IT Telkom, berikut hasilnya.
+         
+         <srai>kontak</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>* instagram *</pattern>
+      <template>
+         Jika yang anda maksud Akun Instagram IT Telkom, berikut hasilnya.
+         
+         <srai>kontak</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>instagram *</pattern>
+      <template>
+         Jika yang anda maksud Akun Instagram IT Telkom, berikut hasilnya.
+         
+         <srai>kontak</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>* LINE *</pattern>
+      <template>
+         Jika yang anda maksud Akun Line IT Telkom, berikut hasilnya.
+         
+         <srai>kontak</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>LINE *</pattern>
+      <template>
+         Jika yang anda maksud Akun Line IT Telkom, berikut hasilnya.
+         
+         <srai>kontak</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>* WA *</pattern>
+      <template>
+         Jika yang anda maksud Nomor WhatsApp IT Telkom, berikut hasilnya.
+         
+         <srai>kontak</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>WA *</pattern>
+      <template>
+         Jika yang anda maksud Nomor WhatsApp IT Telkom, berikut hasilnya.
+         
+         <srai>kontak</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>* Whatsapp *</pattern>
+      <template>
+         Jika yang anda maksud Nomor WhatsApp IT Telkom, berikut hasilnya.
+         
+         <srai>kontak</srai>
+      </template>
+   </category>
+   <category>
+      <pattern>Whatsapp *</pattern>
+      <template>
+         Jika yang anda maksud Nomor WhatsApp IT Telkom, berikut hasilnya.
+         
+         <srai>kontak</srai>
+      </template>
+   </category>
    <!-- lamat kamus dimana?/ Lokasi kampus dimana ?/ posisi kampus dimana? -->
    <!-- Pertanyaan ke 10 -->
+   
    <!-- Tempat Umum Institut Teknologi Telkom Purwokerto Terdekat?/ fasilitas terdekat/ apa saja yang di sekitar kampus?  -->
    <category>
       <pattern>*</pattern>
