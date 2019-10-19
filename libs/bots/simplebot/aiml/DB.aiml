@@ -544,7 +544,7 @@
    
    <!-- Tempat Umum Institut Teknologi Telkom Purwokerto Terdekat?/ fasilitas terdekat/ apa saja yang di sekitar kampus?  -->
    <category>
-      <pattern>*</pattern>
+      <pattern>alamat*</pattern>
       <template>
          kata/pertanyaan "<star/>" tidak terdifinsi, silahkan coba kata /pertanyaan lain.
       </template>
